@@ -1,14 +1,14 @@
 /* ============ THEME TOKENS ============ */
 :root{
-  --obsidian:#0B0D13;
-  --graphite:#14161f;
-  --graphite-2:#1b1e2a;
-  --amber:#F59E0B;
-  --amber-2:#FBBF24;
-  --text:#EDEEF3;
-  --text-dim:#9CA0B0;
-  --border:rgba(245,158,11,0.18);
-  --glass:rgba(23,25,35,0.55);
+  --obsidian:#FBF6EC;
+  --graphite:#FFFFFF;
+  --graphite-2:#F3E9D6;
+  --amber:#D97706;
+  --amber-2:#B45309;
+  --text:#241C12;
+  --text-dim:#7A6F5D;
+  --border:rgba(180,83,9,0.22);
+  --glass:rgba(255,255,255,0.72);
   --radius:20px;
 }
 
@@ -80,9 +80,9 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 .section{
   position:relative;
   z-index:2;
-  max-width:1180px;
+  max-width:1360px;
   margin:0 auto;
-  padding:120px 24px 40px;
+  padding:120px 32px 40px;
   text-align:center;
 }
 .section-eyebrow{
@@ -349,7 +349,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   bottom:0;
   width:14px; height:14px;
   border-radius:50%;
-  background:radial-gradient(circle, rgba(220,220,220,0.55), transparent 70%);
+  background:radial-gradient(circle, rgba(120,110,95,0.5), transparent 70%);
   animation:smokeRise 1.6s ease-out forwards;
 }
 @keyframes smokeRise{
@@ -387,7 +387,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:36px;
-  max-width:1220px;
+  max-width:1360px;
   margin:0 auto 64px;
   align-items:stretch;
 }
@@ -513,7 +513,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 
 /* ============ MEMORIES — STORY SHOWCASE / MEMORY REEL ============ */
 .reel{
-  max-width:1200px;
+  max-width:1320px;
   margin:0 auto;
 }
 .reel-stage{
@@ -528,7 +528,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   border-radius:26px;
   overflow:hidden;
   min-height:520px;
-  height:clamp(520px,62vw,720px);
+  height:clamp(520px,58vw,820px);
   background:
     radial-gradient(circle at 50% 40%, rgba(245,158,11,0.08), transparent 65%),
     var(--graphite);
@@ -732,7 +732,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:26px;
-  max-width:1100px;
+  max-width:1260px;
   margin:0 auto;
 }
 .team-card{
@@ -797,7 +797,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   display:flex;
   align-items:center;
   justify-content:center;
-  background:radial-gradient(circle at 35% 30%, #26293a, var(--graphite));
+  background:radial-gradient(circle at 35% 30%, #FDECC8, var(--graphite-2));
   color:var(--amber-2);
   font-family:'Playfair Display',serif;
   font-weight:700;
@@ -899,6 +899,11 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   max-width:920px;
   height:680px;
   margin:60px auto 20px;
+  border-radius:40px;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(245,158,11,0.08), transparent 60%),
+    var(--graphite);
+  border:1px solid var(--border);
 }
 .campaign-lines{
   position:absolute; inset:0;
@@ -975,23 +980,24 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 .benefit-card{
   position:absolute;
   left:50%; top:50%;
-  width:172px;
+  width:200px;
   transform:translate(-50%,-50%) scale(0.5);
   opacity:0;
   background:var(--glass);
   border:1px solid var(--border);
   backdrop-filter:blur(14px);
   border-radius:16px;
-  padding:14px 16px;
+  padding:16px 18px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:6px;
+  gap:8px;
   text-align:center;
-  font-size:0.86rem;
+  font-size:0.94rem;
   color:var(--text);
-  line-height:1.35;
+  line-height:1.5;
   z-index:2;
+  box-shadow:0 14px 34px rgba(0,0,0,0.45);
   transition:opacity 0.6s ease var(--reveal-delay,0s), transform 0.6s cubic-bezier(.34,1.4,.5,1) var(--reveal-delay,0s), box-shadow .25s ease;
 }
 .campaign-stage.reveal .benefit-card{
@@ -1079,7 +1085,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 }
 .wish-form input, .wish-form textarea{
   width:100%;
-  background:rgba(255,255,255,0.04);
+  background:rgba(0,0,0,0.035);
   border:1px solid var(--border);
   border-radius:10px;
   color:var(--text);
@@ -1101,7 +1107,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   cursor:pointer;
   transition:transform .2s ease, border-color .2s ease;
 }
-.color-dot.active{ border-color:#fff; transform:scale(1.15); }
+.color-dot.active{ border-color:var(--text); transform:scale(1.15); }
 
 .corkboard{
   display:flex;
@@ -1208,7 +1214,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 }
 
 /* ============ THE GROWMINION JOURNEY ============ */
-.journey-section{ max-width:1180px; }
+.journey-section{ max-width:1360px; }
 .journey-timeline{
   position:relative;
   margin-top:20px;
@@ -1364,4 +1370,80 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   .journey-row .journey-node{ order:0; position:absolute; left:0; top:0; }
   .journey-row .journey-node span{ width:44px; height:44px; font-size:0.7rem; }
   .journey-row .journey-content{ order:2; }
+}
+
+/* ============ CEO MESSAGE ============ */
+.ceo-section{ max-width:880px; }
+.ceo-card{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--glass);
+  backdrop-filter:blur(14px);
+  box-shadow:0 30px 70px rgba(0,0,0,0.5);
+}
+.ceo-hero-img{
+  width:100%;
+  display:block;
+  height:auto;
+}
+.ceo-card-body{
+  position:relative;
+  padding:40px 32px 44px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(245,158,11,0.1), transparent 60%),
+    var(--graphite);
+}
+.ceo-avatars{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+  margin-bottom:20px;
+}
+.ceo-avatar{ display:flex; flex-direction:column; align-items:center; }
+.ceo-avatar img{
+  width:88px; height:88px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--graphite-2);
+  box-shadow:0 0 0 3px rgba(245,158,11,0.5), 0 10px 24px rgba(0,0,0,0.5);
+  margin-bottom:10px;
+}
+.ceo-avatar-name{ font-weight:800; color:var(--amber-2); font-size:0.95rem; }
+.ceo-avatar-role{ color:var(--text-dim); font-size:0.75rem; letter-spacing:0.04em; text-transform:uppercase; margin-top:2px; }
+.ceo-avatar-link{
+  font-size:1.4rem;
+  margin-bottom:32px;
+  filter:drop-shadow(0 0 10px rgba(245,158,11,0.5));
+}
+.ceo-quote-mark{
+  font-family:'Playfair Display',serif;
+  font-size:3.2rem;
+  color:var(--amber);
+  opacity:0.35;
+  line-height:1;
+  margin-bottom:-6px;
+}
+.ceo-message{
+  color:var(--text);
+  font-weight:600;
+  font-size:1.06rem;
+  line-height:1.9;
+  max-width:640px;
+  margin:0 auto;
+}
+.ceo-signature{
+  margin-top:24px;
+  color:var(--amber-2);
+  font-weight:700;
+  font-size:0.95rem;
+}
+
+@media(max-width:600px){
+  .ceo-card-body{ padding:32px 20px 36px; }
+  .ceo-avatars{ gap:14px; }
+  .ceo-avatar img{ width:68px; height:68px; }
+  .ceo-message{ font-size:0.98rem; line-height:1.8; }
 }

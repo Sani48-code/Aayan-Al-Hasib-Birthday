@@ -36,18 +36,12 @@ const MEMORY_GALLERY = [
   },
   {
     id: 5,
-    src: './memories 2.jpeg',
-    title: 'Road Trip Moments',
-    caption: 'Group selfie on the way to more memories',
-  },
-  {
-    id: 6,
     src: './memories 3.jpeg',
     title: "GrowMinion's First Get-Together",
     caption: 'The whole squad, matching caps and big energy',
   },
   {
-    id: 7,
+    id: 6,
     src: './memories 4.jpeg',
     title: 'Team Dinner Diaries',
     caption: 'Wrapping up the day with good food and better company',
@@ -71,7 +65,7 @@ const GIFTS = [
     icon: '🏆',
     title: 'Boss Appreciation Trophy',
     image: './Boss Appreciation trophy.png',
-    desc: 'A custom certificate: "Most Inspiring Leader" — signed by every single one of us.',
+    desc: 'A custom certificate: "Most Inspiring Leader" , signed by every single one of us.',
   },
 ];
 
@@ -85,43 +79,29 @@ const TEAM_MESSAGES = [
     initials: 'AKS',
     lang: 'bn',
     spotlight: true,
-    message: 'ভাই, আমার ক্যারিয়ারে আপনার অবদান অপরিসীম। আমি নিজেই উপলব্ধি করতে পারি আমি অতীতে কী ছিলাম আর আজ কোথায় এসে দাঁড়িয়েছি। আমার আত্মবিশ্বাস বাড়িয়ে দেওয়ার জন্য আপনার প্রতি আমি আজীবন কৃতজ্ঞ থাকব। সবসময় বড় ভাইয়ের মতো পাশে থেকেছেন, যেকোনো বিপদ-আপদে আপনাকে কাছে পেয়েছি। আপনার জন্য মন থেকে অনেক অনেক দোয়া রইল ভাই—আল্লাহ আপনাকে কবুল করুন। ইনশাআল্লাহ, আমাদের এই কোম্পানিকে আমরা একসাথে অনেক বড় করব। সবসময় আপনার সাথে আছি ভাই!',
+    message: 'ভাই, আমার ক্যারিয়ারে আপনার অবদান অপরিসীম। আমি নিজেই উপলব্ধি করতে পারি আমি অতীতে কী ছিলাম আর আজ কোথায় এসে দাঁড়িয়েছি। আমার আত্মবিশ্বাস বাড়িয়ে দেওয়ার জন্য আপনার প্রতি আমি আজীবন কৃতজ্ঞ থাকব। সবসময় বড় ভাইয়ের মতো পাশে থেকেছেন, যেকোনো বিপদ-আপদে আপনাকে কাছে পেয়েছি। আপনার জন্য মন থেকে অনেক অনেক দোয়া রইল ভাই, আল্লাহ আপনাকে কবুল করুন। ইনশাআল্লাহ, আমাদের এই কোম্পানিকে আমরা একসাথে অনেক বড় করব। সবসময় আপনার সাথে আছি ভাই!',
   },
   {
-    name: 'Tanvir Ahmed',
-    role: 'Growth Strategist',
-    photo: '',
-    message: 'Boss Ayan never just gives orders — he teaches the "why" behind every decision. That\'s why the whole team thinks like owners now.',
+    name: 'Naimur Sayem',
+    role: 'Senior Projects Manager',
+    photo: './Team Member/Naimur Sayem.png',
+    lang: 'bn',
+    message: 'ভাই, আজ আমি যেই জায়গায় দাঁড়িয়ে আছি, এর পুরো কৃতিত্ব আপনার। একদম নতুন অবস্থায় যখন কিছুই জানতাম না, তখন আপনি আমাকে দায়িত্ব দিয়েছিলেন, বিশ্বাস করেছিলেন। সেই বিশ্বাসটাই আমাকে আজ সিনিয়র পজিশনে পৌঁছে দিয়েছে। আপনি কখনো উপর থেকে কথা বলেননি, বরং সবসময় পাশে থেকে সাহস জুগিয়েছেন। আপনার নেতৃত্ব না থাকলে আজকের আমি হয়তো তৈরিই হতাম না। জন্মদিনে দোয়া করি, আপনি আরও উঁচুতে উঠুন, আর আমরা সবাই আপনার সাথেই থাকব। শুভ জন্মদিন বস।',
   },
   {
-    name: 'Nusrat Jahan',
-    role: 'Content Lead',
-    photo: '',
-    message: 'Whenever I\'m stuck, he makes time — no matter how busy he is. That kind of patience is rare in a leader.',
+    name: 'Shahed',
+    role: 'Project Manager',
+    photo: './Team Member/Shahed.png',
+    initials: 'SH',
+    lang: 'bn',
+    message: 'ভাই, জীবনের অনেক কঠিন সময়ে আপনাকে পাশে পেয়েছি, শুধু বস হিসেবে না, একজন আপনজন হিসেবে। কাজের বাইরেও আপনি সবসময় খোঁজ নিয়েছেন, বুঝতে চেয়েছেন। এই কোম্পানিতে যোগ দেওয়ার সময় যা কিছুই জানতাম না, ধীরে ধীরে সব শিখেছি আপনার সাপোর্টে। আপনি বিশ্বাস না করলে হয়তো আজ এই জায়গায় আসতেই পারতাম না। আপনাকে ঘিরে যে পরিবার তৈরি হয়েছে, তার অংশ হতে পেরে গর্ব হয়। জন্মদিনে শুধু এইটুকুই বলি, আপনি ভালো থাকুন, সুস্থ থাকুন, আর আমাদের এভাবেই আগলে রাখুন। শুভ জন্মদিন, ভাই।',
   },
   {
-    name: 'Rafiul Islam',
-    role: 'Performance Marketer',
-    photo: '',
-    message: 'He pushed me to take on projects I thought were way above my level, and backed me the whole way. I grew more in a year than I expected in three.',
-  },
-  {
-    name: 'Sadia Karim',
-    role: 'Client Success',
-    photo: '',
-    message: 'Boss Ayan celebrates our wins louder than his own. That energy is contagious — it\'s why this team never stops trying.',
-  },
-  {
-    name: 'Mehedi Hasan',
-    role: 'Design Lead',
-    photo: '',
-    message: 'His vision for GrowMinion isn\'t just business — it\'s personal for him, and that passion is what makes us all show up and give our best.',
-  },
-  {
-    name: 'Farhana Akter',
-    role: 'Operations',
-    photo: '',
-    message: 'Calm under pressure, honest in feedback, and always fair. Boss Ayan sets the standard for what a great leader looks like.',
+    name: 'Shawn Datta',
+    role: 'Project Manager',
+    photo: './Team Member/Shawn Datta.png',
+    lang: 'bn',
+    message: 'ভাই, যেদিন প্রথম জয়েন করেছিলাম, তখন হাতে কোনো অভিজ্ঞতা ছিল না, ছিল শুধু ইচ্ছা। আপনি সেই ইচ্ছাটাকেই বিশ্বাস করেছিলেন। এরপর প্রতিটা দিন কিছু না কিছু শিখিয়েছেন, ভুল করলেও রাগ করেননি, বরং বুঝিয়ে দিয়েছেন কীভাবে ঠিক করতে হয়। শূন্য থেকে আজকের গ্রোমিনিয়ন পর্যন্ত যে জার্নি, তার একটা ছোট অংশ হতে পেরে নিজেকে ভাগ্যবান মনে হয়। জন্মদিনে দোয়া করি, আপনার স্বপ্নগুলো আরও বড় হোক, আর আমরা সবাই মিলে সেটা সত্যি করি। শুভ জন্মদিন, ভাই।',
   },
 ];
 
@@ -331,10 +311,10 @@ const AudioEngine = (() => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.amber
-        ? `rgba(245,158,11,${p.alpha})`
-        : `rgba(255,255,255,${p.alpha * 0.7})`;
-      ctx.shadowBlur = p.amber ? 8 : 3;
-      ctx.shadowColor = p.amber ? 'rgba(245,158,11,0.8)' : 'rgba(255,255,255,0.6)';
+        ? `rgba(180,83,9,${p.alpha})`
+        : `rgba(120,110,95,${p.alpha * 0.6})`;
+      ctx.shadowBlur = p.amber ? 8 : 0;
+      ctx.shadowColor = 'rgba(180,83,9,0.7)';
       ctx.fill();
     });
     requestAnimationFrame(tick);
@@ -356,7 +336,7 @@ const AudioEngine = (() => {
 
   function render() {
     if (isBirthdayToday()) {
-      wrap.innerHTML = '<div class="celebration-banner">🎉 It\'s Boss Ayan\'s Birthday Today! 🎂✨</div>';
+      wrap.innerHTML = '<div class="celebration-banner">🎉 It\'s Boss Aayan\'s Birthday Today! 🎂✨</div>';
       return;
     }
     const target = nextBirthdayDate();
@@ -428,14 +408,14 @@ document.getElementById('musicToggle').addEventListener('click', function () {
         spread: 70,
         angle: 60,
         origin: { x: 0.15, y: 0.6 },
-        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#fff'],
+        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#78350F'],
       });
       confetti({
         particleCount: 90,
         spread: 70,
         angle: 120,
         origin: { x: 0.85, y: 0.6 },
-        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#fff'],
+        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#78350F'],
       });
     }, 500);
     setTimeout(() => {
@@ -517,7 +497,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
         particleCount: 40,
         spread: 60,
         origin: { y: 0.7 },
-        colors: ['#F59E0B', '#FBBF24', '#fff'],
+        colors: ['#F59E0B', '#FBBF24', '#78350F'],
       });
     }
 
@@ -686,7 +666,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     const item = MEMORY_GALLERY[current];
     modalImg.src = item.src;
     modalImg.alt = item.title;
-    modalCaption.textContent = `${item.title} — ${item.caption}`;
+    modalCaption.textContent = `${item.title}  ·  ${item.caption}`;
     modal.classList.add('show');
   });
   modalClose.addEventListener('click', () => modal.classList.remove('show'));
@@ -734,7 +714,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
   function openPhoto(member) {
     modalImg.src = member.photo;
     modalImg.alt = member.name;
-    modalCaption.textContent = `${member.name} — ${member.role}`;
+    modalCaption.textContent = `${member.name}  ·  ${member.role}`;
     modal.classList.add('show');
   }
 
@@ -853,7 +833,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     const rect = stage.getBoundingClientRect();
     const cx = rect.width / 2;
     const cy = rect.height / 2;
-    const radius = Math.min(rect.width, rect.height) / 2 - 95;
+    const radius = Math.min(rect.width, rect.height) / 2 - 112;
 
     svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
     while (svg.childNodes.length > 1) svg.removeChild(svg.lastChild);
@@ -910,7 +890,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
       particleCount: 80,
       spread: 90,
       origin: { y: 0.6 },
-      colors: ['#F59E0B', '#FBBF24', '#fff'],
+      colors: ['#F59E0B', '#FBBF24', '#78350F'],
     });
     AudioEngine.chime(659.25, 0, 0.25, 0.2);
     AudioEngine.chime(880, 0.12, 0.3, 0.2);
