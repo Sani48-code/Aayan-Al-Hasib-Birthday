@@ -1,420 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Celebrating Boss Aayan Al Hasib</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Manrope:wght@400;500;600;700;800&family=Baloo+Da+2:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celebrating Boss Aayan Al Hasib</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Manrope:wght@400;500;600;700;800&family=Baloo+Da+2:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
-<canvas id="bg-canvas"></canvas>
+  <canvas id="bg-canvas"></canvas>
 
-<div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- ===================== NAV / MUSIC TOGGLE ===================== -->
-<button id="musicToggle" class="music-toggle" aria-label="Toggle birthday music">
-  <span class="music-icon">♪</span>
-  <span class="music-label">Play Tune</span>
-</button>
+  <!-- ===================== NAV / MUSIC TOGGLE ===================== -->
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle birthday music">
+    <span class="music-icon">♪</span>
+    <span class="music-label">Play Tune</span>
+  </button>
 
-<!-- ===================== HERO ===================== -->
-<header class="hero" id="hero">
-  <div class="hero-inner">
-    <p class="eyebrow">✦ A Celebration In His Honor ✦</p>
-    <h1 class="hero-title">Celebrating Boss<br><span class="amber-text">Aayan Al Hasib</span></h1>
-    <p class="hero-subtitle">The Visionary, Mentor &amp; Driving Force</p>
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">✦ A Celebration In His Honor ✦</p>
+      <h1 class="hero-title">Celebrating Boss<br><span class="amber-text">Aayan Al Hasib</span></h1>
+      <p class="hero-subtitle">The Visionary, Mentor &amp; Driving Force</p>
 
-    <div class="countdown-wrap" id="countdownWrap">
-      <div class="countdown" id="countdown">
-        <div class="cd-box"><span class="cd-num" id="cdDays">--</span><span class="cd-label">Days</span></div>
-        <div class="cd-box"><span class="cd-num" id="cdHours">--</span><span class="cd-label">Hours</span></div>
-        <div class="cd-box"><span class="cd-num" id="cdMinutes">--</span><span class="cd-label">Minutes</span></div>
-        <div class="cd-box"><span class="cd-num" id="cdSeconds">--</span><span class="cd-label">Seconds</span></div>
+      <div class="countdown-wrap" id="countdownWrap">
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><span class="cd-num" id="cdDays">--</span><span class="cd-label">Days</span></div>
+          <div class="cd-box"><span class="cd-num" id="cdHours">--</span><span class="cd-label">Hours</span></div>
+          <div class="cd-box"><span class="cd-num" id="cdMinutes">--</span><span class="cd-label">Minutes</span></div>
+          <div class="cd-box"><span class="cd-num" id="cdSeconds">--</span><span class="cd-label">Seconds</span></div>
+        </div>
+        <p class="countdown-caption" id="countdownCaption">until the big day, September 24</p>
       </div>
-      <p class="countdown-caption" id="countdownCaption">until the big day, September 24</p>
-    </div>
 
-    <div class="hero-video-showcase">
-      <h2 class="hero-video-title">A Tribute, <span class="amber-text">In Motion</span></h2>
-      <div class="hero-video-frame">
-        <video class="hero-video" id="heroVideo" muted autoplay loop playsinline preload="metadata">
-          <source src="./Birthday video.mp4" type="video/mp4">
-        </video>
+      <div class="hero-video-showcase">
+        <h2 class="hero-video-title">A Tribute, <span class="amber-text">In Motion</span></h2>
+        <div class="hero-video-frame">
+          <video class="hero-video" id="heroVideo" muted autoplay loop playsinline preload="metadata">
+            <source src="./Birthday video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="hero-video-caption">A little something we put together for you, Boss 🎬</p>
       </div>
-      <p class="hero-video-caption">A little something we put together for you, Boss 🎬</p>
+
+      <a href="#cake" class="scroll-cue">Begin the Celebration ↓</a>
     </div>
+  </header>
 
-    <a href="#cake" class="scroll-cue">Begin the Celebration ↓</a>
-  </div>
-</header>
+  <!-- ===================== CAKE & CANDLES ===================== -->
+  <section class="section" id="cake">
+    <p class="section-eyebrow">Step One</p>
+    <h2 class="section-title">Light Up the Celebration</h2>
+    <p class="section-desc">Click the candles or the button below to blow them out.</p>
 
-<!-- ===================== CAKE & CANDLES ===================== -->
-<section class="section" id="cake">
-  <p class="section-eyebrow">Step One</p>
-  <h2 class="section-title">Light Up the Celebration</h2>
-  <p class="section-desc">Click the candles or the button below to blow them out.</p>
+    <div class="cake-stage">
+      <div class="cake-plate">
+        <div class="cake-shadow"></div>
+        <svg class="cake-svg" id="cake3d" viewBox="0 0 480 620" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- stand -->
+          <ellipse class="stand-foot" cx="240" cy="586" rx="120" ry="20" />
+          <rect class="stand-column" x="210" y="498" width="60" height="80" />
+          <rect class="stand-bowl" x="60" y="448" width="360" height="50" rx="18" />
 
-  <div class="cake-stage">
-    <div class="cake-plate">
-      <div class="cake-shadow"></div>
-      <svg class="cake-svg" id="cake3d" viewBox="0 0 480 620" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- stand -->
-        <ellipse class="stand-foot" cx="240" cy="586" rx="120" ry="20"/>
-        <rect class="stand-column" x="210" y="498" width="60" height="80"/>
-        <rect class="stand-bowl" x="60" y="448" width="360" height="50" rx="18"/>
+          <!-- cake tier -->
+          <rect class="cake-body-bg" x="90" y="260" width="300" height="150" />
 
-        <!-- cake tier -->
-        <rect class="cake-body-bg" x="90" y="260" width="300" height="150"/>
+          <!-- inner cross-section, revealed once the slice wedge slides away -->
+          <path class="cake-cut-gap" d="M280,260 L330,410 L230,410 Z" />
 
-        <!-- inner cross-section, revealed once the slice wedge slides away -->
-        <path class="cake-cut-gap" d="M280,260 L330,410 L230,410 Z"/>
+          <!-- slice wedge: matches body color, hides the cut gap until sliced -->
+          <g class="cake-slice-wedge" id="sliceWedge">
+            <path d="M280,260 L330,410 L230,410 Z" />
+          </g>
 
-        <!-- slice wedge: matches body color, hides the cut gap until sliced -->
-        <g class="cake-slice-wedge" id="sliceWedge">
-          <path d="M280,260 L330,410 L230,410 Z"/>
-        </g>
+          <!-- piped icing swirl + stars -->
+          <path class="cake-swirl" d="M112,320 C150,282 192,360 230,320 C268,282 310,360 348,320" />
+          <text class="cake-star" x="150" y="300">★</text>
+          <text class="cake-star" x="270" y="300">★</text>
+          <text class="cake-star" x="200" y="354">★</text>
+          <text class="cake-star" x="322" y="354">★</text>
 
-        <!-- piped icing swirl + stars -->
-        <path class="cake-swirl" d="M112,320 C150,282 192,360 230,320 C268,282 310,360 348,320"/>
-        <text class="cake-star" x="150" y="300">★</text>
-        <text class="cake-star" x="270" y="300">★</text>
-        <text class="cake-star" x="200" y="354">★</text>
-        <text class="cake-star" x="322" y="354">★</text>
-
-        <!-- frosting bands: a flat rect + a row of plain circles, no path
+          <!-- frosting bands: a flat rect + a row of plain circles, no path
              winding to go wrong , always renders as a clean scalloped edge -->
-        <g class="cake-frosting-top">
-          <rect x="90" y="241.25" width="300" height="18.75"/>
-          <circle cx="108.75" cy="241.25" r="18.75"/>
-          <circle cx="146.25" cy="241.25" r="18.75"/>
-          <circle cx="183.75" cy="241.25" r="18.75"/>
-          <circle cx="221.25" cy="241.25" r="18.75"/>
-          <circle cx="258.75" cy="241.25" r="18.75"/>
-          <circle cx="296.25" cy="241.25" r="18.75"/>
-          <circle cx="333.75" cy="241.25" r="18.75"/>
-          <circle cx="371.25" cy="241.25" r="18.75"/>
-        </g>
-        <g class="cake-frosting-bottom">
-          <rect x="90" y="410" width="300" height="18.75"/>
-          <circle cx="108.75" cy="428.75" r="18.75"/>
-          <circle cx="146.25" cy="428.75" r="18.75"/>
-          <circle cx="183.75" cy="428.75" r="18.75"/>
-          <circle cx="221.25" cy="428.75" r="18.75"/>
-          <circle cx="258.75" cy="428.75" r="18.75"/>
-          <circle cx="296.25" cy="428.75" r="18.75"/>
-          <circle cx="333.75" cy="428.75" r="18.75"/>
-          <circle cx="371.25" cy="428.75" r="18.75"/>
-        </g>
+          <g class="cake-frosting-top">
+            <rect x="90" y="241.25" width="300" height="18.75" />
+            <circle cx="108.75" cy="241.25" r="18.75" />
+            <circle cx="146.25" cy="241.25" r="18.75" />
+            <circle cx="183.75" cy="241.25" r="18.75" />
+            <circle cx="221.25" cy="241.25" r="18.75" />
+            <circle cx="258.75" cy="241.25" r="18.75" />
+            <circle cx="296.25" cy="241.25" r="18.75" />
+            <circle cx="333.75" cy="241.25" r="18.75" />
+            <circle cx="371.25" cy="241.25" r="18.75" />
+          </g>
+          <g class="cake-frosting-bottom">
+            <rect x="90" y="410" width="300" height="18.75" />
+            <circle cx="108.75" cy="428.75" r="18.75" />
+            <circle cx="146.25" cy="428.75" r="18.75" />
+            <circle cx="183.75" cy="428.75" r="18.75" />
+            <circle cx="221.25" cy="428.75" r="18.75" />
+            <circle cx="258.75" cy="428.75" r="18.75" />
+            <circle cx="296.25" cy="428.75" r="18.75" />
+            <circle cx="333.75" cy="428.75" r="18.75" />
+            <circle cx="371.25" cy="428.75" r="18.75" />
+          </g>
 
-        <!-- candles: turning 24 -->
-        <g id="candles">
-          <g class="candle" data-index="0">
-            <text class="candle-digit" x="175" y="215" text-anchor="middle">2</text>
-            <g transform="translate(175,88)">
-              <g class="flame">
-                <path class="flame-outer" d="M0,-17 C7,-9 9,1 4,9 C2,14 -2,14 -4,9 C-9,1 -7,-9 0,-17 Z"/>
-                <path class="flame-inner" d="M0,-6 C3,-2 3,4 0,7 C-3,4 -3,-2 0,-6 Z"/>
+          <!-- candles: turning 24 -->
+          <g id="candles">
+            <g class="candle" data-index="0">
+              <text class="candle-digit" x="175" y="215" text-anchor="middle">2</text>
+              <g transform="translate(175,88)">
+                <g class="flame">
+                  <path class="flame-outer" d="M0,-17 C7,-9 9,1 4,9 C2,14 -2,14 -4,9 C-9,1 -7,-9 0,-17 Z" />
+                  <path class="flame-inner" d="M0,-6 C3,-2 3,4 0,7 C-3,4 -3,-2 0,-6 Z" />
+                </g>
+              </g>
+            </g>
+            <g class="candle" data-index="1">
+              <text class="candle-digit" x="305" y="215" text-anchor="middle">4</text>
+              <g transform="translate(305,88)">
+                <g class="flame">
+                  <path class="flame-outer" d="M0,-17 C7,-9 9,1 4,9 C2,14 -2,14 -4,9 C-9,1 -7,-9 0,-17 Z" />
+                  <path class="flame-inner" d="M0,-6 C3,-2 3,4 0,7 C-3,4 -3,-2 0,-6 Z" />
+                </g>
               </g>
             </g>
           </g>
-          <g class="candle" data-index="1">
-            <text class="candle-digit" x="305" y="215" text-anchor="middle">4</text>
-            <g transform="translate(305,88)">
-              <g class="flame">
-                <path class="flame-outer" d="M0,-17 C7,-9 9,1 4,9 C2,14 -2,14 -4,9 C-9,1 -7,-9 0,-17 Z"/>
-                <path class="flame-inner" d="M0,-6 C3,-2 3,4 0,7 C-3,4 -3,-2 0,-6 Z"/>
-              </g>
-            </g>
-          </g>
-        </g>
-      </svg>
-      <div class="smoke-layer" id="smokeLayer"></div>
+        </svg>
+        <div class="smoke-layer" id="smokeLayer"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="cake-controls">
-    <button class="btn btn-primary" id="blowBtn">💨 Blow Candles</button>
-    <button class="btn btn-gold" id="sliceBtn" disabled>🔪 Slice the Cake</button>
-  </div>
-
-  <div class="cheer-popup" id="cheerPopup">
-    <div class="cheer-card">
-      <div class="cheer-emoji">🎉🍰🎂</div>
-      <h3>Hip Hip Hooray!</h3>
-      <p>Here's to another incredible year of leadership, wisdom &amp; wins, Boss Aayan!</p>
-      <button class="btn btn-primary" id="cheerClose">Continue →</button>
+    <div class="cake-controls">
+      <button class="btn btn-primary" id="blowBtn">💨 Blow Candles</button>
+      <button class="btn btn-gold" id="sliceBtn" disabled>🔪 Slice the Cake</button>
     </div>
-  </div>
-</section>
 
-<!-- ===================== FOUNDER MESSAGE ===================== -->
-<section class="section founder-section" id="founderMessage">
-  <p class="section-eyebrow">A Message From Our Founder</p>
-  <h2 class="section-title">From <span class="amber-text">Joydip</span>, To You, Boss</h2>
-  <p class="section-desc">Founder and Co-Founder. Brothers before anything else.</p>
+    <div class="cheer-popup" id="cheerPopup">
+      <div class="cheer-card">
+        <div class="cheer-emoji">🎉🍰🎂</div>
+        <h3>Hip Hip Hooray!</h3>
+        <p>Here's to another incredible year of leadership, wisdom &amp; wins, Boss Aayan!</p>
+        <button class="btn btn-primary" id="cheerClose">Continue →</button>
+      </div>
+    </div>
+  </section>
 
-  <div class="ceo-card">
-    <img class="ceo-hero-img" src="./memory 6.webp" alt="Aayan and Joydip at GrowMinion's first get-together" loading="lazy" />
+  <!-- ===================== FOUNDER MESSAGE ===================== -->
+  <section class="section founder-section" id="founderMessage">
+    <p class="section-eyebrow">A Message From Our Founder</p>
+    <h2 class="section-title">From <span class="amber-text">Joydip</span>, To You, Boss</h2>
+    <p class="section-desc">Founder and Co-Founder. Brothers before anything else.</p>
 
-    <div class="ceo-card-body">
-      <div class="ceo-avatars">
-        <div class="ceo-avatar">
-          <img src="./Team Member/Joydip Kirtunia.png" alt="Joydip Kirtunia" />
-          <div class="ceo-avatar-name">Joydip Kirtunia</div>
-          <div class="ceo-avatar-role">Founder &amp; CEO</div>
+    <div class="ceo-card">
+      <img class="ceo-hero-img" src="./The Journey/Joydip and Aayan.png" alt="Joydip and Aayan, GrowMinion"
+        loading="lazy" />
+
+      <div class="ceo-card-body">
+        <div class="ceo-avatars">
+          <div class="ceo-avatar">
+            <img src="./Team Member/Joydip Kirtunia.png" alt="Joydip Kirtunia" />
+            <div class="ceo-avatar-name">Joydip Kirtunia</div>
+            <div class="ceo-avatar-role">Founder &amp; CEO</div>
+          </div>
+          <div class="ceo-avatar-link">🤝</div>
+          <div class="ceo-avatar">
+            <img src="./Aayan Al Hasib.png" alt="Aayan Al Hasib" />
+            <div class="ceo-avatar-name">Aayan Al Hasib</div>
+            <div class="ceo-avatar-role">Co-Founder &amp; Visionary</div>
+          </div>
         </div>
-        <div class="ceo-avatar-link">🤝</div>
-        <div class="ceo-avatar">
-          <img src="./Aayan Al Hasib.png" alt="Aayan Al Hasib" />
-          <div class="ceo-avatar-name">Aayan Al Hasib</div>
-          <div class="ceo-avatar-role">Co-Founder &amp; Visionary</div>
+
+        <div class="ceo-quote-mark">“</div>
+        <p class="ceo-message">Aayan, when you and I started this company together, we had almost nothing in our hands,
+          just a dream and complete trust in each other. Everything GrowMinion has become today is possible because of
+          your tireless hard work and unbreakable determination. All the nights you stayed up working, all the times you
+          put the team before yourself, all the times you kept a cool head and found a way through even when giving up
+          would have been easier, I have seen it all up close. You are not just my co-founder, you are like my 
+          brother, someone whose presence gave me courage through every hard decision and stood beside me in every win,
+          big or small. Every brick of GrowMinion is built by your hands, and every road ahead, we will walk together,
+          God willing. On your birthday, I send you so much love and so many prayers, bhai. Happy birthday!</p>
+        <div class="ceo-signature">Joydip Kirtunia, Founder &amp; CEO, GrowMinion</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GIFTS ===================== -->
+  <section class="section" id="gifts">
+    <p class="section-eyebrow">Step Two</p>
+    <h2 class="section-title">Mystery Gift Unwrapping</h2>
+    <p class="section-desc">Tap each box to reveal a surprise perk.</p>
+    <div class="gift-grid" id="giftGrid"></div>
+  </section>
+
+  <!-- ===================== TEAM MESSAGES ===================== -->
+  <section class="section" id="teammessages">
+    <p class="section-eyebrow">Step Three</p>
+    <h2 class="section-title">Words From The Team</h2>
+    <p class="section-desc">What Boss Aayan means to each of us, in our own words.</p>
+    <div class="team-grid" id="teamGrid"></div>
+  </section>
+
+  <!-- ===================== MEMORIES / STORY SHOWCASE ===================== -->
+  <section class="section" id="memories">
+    <p class="section-eyebrow">Step Four</p>
+    <h2 class="section-title">Memories &amp; Hall of Fame</h2>
+    <p class="section-desc">Moments that made the journey unforgettable.</p>
+
+    <div class="reel" id="memoryReel">
+      <div class="reel-stage" id="reelStage">
+        <button class="reel-nav reel-nav-prev" id="reelPrev" aria-label="Previous memory">←</button>
+
+        <div class="reel-frame" id="reelFrame">
+          <!-- slides injected by JS -->
         </div>
-      </div>
 
-      <div class="ceo-quote-mark">“</div>
-      <p class="ceo-message bn-text">আয়ান ভাই, তুমি আর আমি মিলে যখন এই কোম্পানি শুরু করেছিলাম, তখন হাতে তেমন কিছুই ছিল না, শুধু একটা স্বপ্ন আর একে অপরের প্রতি অগাধ বিশ্বাস। আজ গ্রোমিনিয়ন যেখানে এসে দাঁড়িয়েছে, এই পুরো জার্নিটা সম্ভব হয়েছে তোমার অক্লান্ত পরিশ্রম আর অদম্য মনোবলের জন্য। কত রাত জেগে কাজ করেছ, কতবার নিজের চেয়ে টিমের কথা আগে ভেবেছ, কতবার হাল ছাড়ার মতো পরিস্থিতিতেও মাথা ঠান্ডা রেখে পথ খুঁজে বের করেছ, আমি সবটা কাছ থেকে দেখেছি। তুমি শুধু আমার কো-ফাউন্ডার নও, তুমি আমার বড় ভাইয়ের মতো, যার কাছ থেকে প্রতিটা কঠিন সিদ্ধান্তে সাহস পেয়েছি, প্রতিটা ছোট বড় জয়ে পাশে পেয়েছি। গ্রোমিনিয়নের প্রতিটা ইট তোমার হাতে গড়া, আর সামনের প্রতিটা পথও আমরা একসাথেই হাঁটব ইনশাআল্লাহ। জন্মদিনে তোমার জন্য অনেক অনেক ভালোবাসা আর দোয়া রইল, ভাই। শুভ জন্মদিন!</p>
-      <div class="ceo-signature bn-text">জয়দ্বীপ কীর্তুনিয়া, প্রতিষ্ঠাতা ও সিইও, গ্রোমিনিয়ন</div>
-    </div>
-  </div>
-</section>
+        <button class="reel-nav reel-nav-next" id="reelNext" aria-label="Next memory">→</button>
 
-<!-- ===================== GIFTS ===================== -->
-<section class="section" id="gifts">
-  <p class="section-eyebrow">Step Two</p>
-  <h2 class="section-title">Mystery Gift Unwrapping</h2>
-  <p class="section-desc">Tap each box to reveal a surprise perk.</p>
-  <div class="gift-grid" id="giftGrid"></div>
-</section>
-
-<!-- ===================== TEAM MESSAGES ===================== -->
-<section class="section" id="teammessages">
-  <p class="section-eyebrow">Step Three</p>
-  <h2 class="section-title">Words From The Team</h2>
-  <p class="section-desc">What Boss Aayan means to each of us, in our own words.</p>
-  <div class="team-grid" id="teamGrid"></div>
-</section>
-
-<!-- ===================== MEMORIES / STORY SHOWCASE ===================== -->
-<section class="section" id="memories">
-  <p class="section-eyebrow">Step Four</p>
-  <h2 class="section-title">Memories &amp; Hall of Fame</h2>
-  <p class="section-desc">Moments that made the journey unforgettable.</p>
-
-  <div class="reel" id="memoryReel">
-    <div class="reel-stage" id="reelStage">
-      <button class="reel-nav reel-nav-prev" id="reelPrev" aria-label="Previous memory">←</button>
-
-      <div class="reel-frame" id="reelFrame">
-        <!-- slides injected by JS -->
-      </div>
-
-      <button class="reel-nav reel-nav-next" id="reelNext" aria-label="Next memory">→</button>
-
-      <div class="reel-caption" id="reelCaption">
-        <h3 class="reel-caption-title" id="reelCaptionTitle"></h3>
-        <p class="reel-caption-text" id="reelCaptionText"></p>
-      </div>
-    </div>
-
-    <div class="reel-controls">
-      <button class="reel-autoplay" id="reelAutoplay" aria-pressed="true">
-        <span class="reel-autoplay-icon">⏸</span>
-        <span class="reel-autoplay-label">Auto-play</span>
-      </button>
-      <div class="reel-progress-track"><div class="reel-progress-fill" id="reelProgressFill"></div></div>
-    </div>
-
-    <div class="reel-thumbs" id="reelThumbs"></div>
-  </div>
-</section>
-
-<!-- ===================== THE GROWMINION JOURNEY ===================== -->
-<section class="section journey-section" id="journey">
-  <p class="section-eyebrow">Our Journey &bull; 2024 to 2026</p>
-  <h2 class="section-title">The <span class="amber-text">GrowMinion</span> Journey</h2>
-  <p class="section-desc">From a vision to a growing team. Every step has a story.</p>
-
-  <div class="journey-timeline">
-    <div class="journey-row">
-      <div class="journey-media">
-        <img src="./The Journey/The Begining.jpg" alt="A Vision for Digital Growth" loading="lazy" />
-      </div>
-      <div class="journey-node"><span>2024</span></div>
-      <div class="journey-content">
-        <p class="journey-chapter">The Beginning</p>
-        <h3>A Vision for Digital Growth</h3>
-        <p>Every big journey begins with a vision. In 2024, the foundation of GrowMinion's journey began with a mission to help businesses grow, reach the right audience, and build a stronger presence online.</p>
-        <div class="journey-tags">
-          <span>💡 Strategy</span><span>🔍 SEO</span><span>📈 Digital Marketing</span>
+        <div class="reel-caption" id="reelCaption">
+          <h3 class="reel-caption-title" id="reelCaptionTitle"></h3>
+          <p class="reel-caption-text" id="reelCaptionText"></p>
         </div>
       </div>
-    </div>
 
-    <div class="journey-row">
-      <div class="journey-content">
-        <p class="journey-chapter">Building Momentum</p>
-        <h3>Turning Ideas Into Digital Strategies</h3>
-        <p>With every new challenge came an opportunity to learn, improve, and build. SEO, paid advertising, content, and creative thinking became part of the journey toward helping businesses reach their goals.</p>
-        <div class="journey-tags">
-          <span>🔍 SEO</span><span>🎯 Google Ads</span><span>📝 Content Strategy</span><span>📊 Analytics</span>
+      <div class="reel-controls">
+        <button class="reel-autoplay" id="reelAutoplay" aria-pressed="true">
+          <span class="reel-autoplay-icon">⏸</span>
+          <span class="reel-autoplay-label">Auto-play</span>
+        </button>
+        <div class="reel-progress-track">
+          <div class="reel-progress-fill" id="reelProgressFill"></div>
         </div>
       </div>
-      <div class="journey-node"><span>2025</span></div>
-      <div class="journey-media">
-        <img src="./The Journey/Building Momentum.jpg" alt="Turning Ideas Into Digital Strategies" loading="lazy" />
-      </div>
-    </div>
 
-    <div class="journey-row">
-      <div class="journey-media">
-        <img src="./The Journey/Growing Together.jpg" alt="More Than Marketing. A Team With a Vision." loading="lazy" />
+      <div class="reel-thumbs" id="reelThumbs"></div>
+    </div>
+  </section>
+
+  <!-- ===================== MARRIAGE CAMPAIGN ===================== -->
+  <section class="section campaign-section" id="marriage">
+    <p class="section-eyebrow">Step Five · Team Intervention</p>
+    <h2 class="section-title bn-heading">ভাই, এবার বিয়ে করেন! <span class="amber-text">👑</span></h2>
+    <p class="section-desc bn-text">বিয়ে করলে সুবিধা কিন্তু কম না!</p>
+
+    <div class="campaign-stage" id="campaignStage">
+      <svg class="campaign-lines" id="campaignLines"></svg>
+
+      <div class="campaign-character">
+        <div class="campaign-char-glow"></div>
+        <img src="./Aayan Al Hasib.png" alt="Boss Aayan" class="campaign-char-photo" />
+        <div class="campaign-crown">👑</div>
+        <span class="float-icon fi-1">❤️</span>
+        <span class="float-icon fi-2">✨</span>
+        <span class="float-icon fi-3">💍</span>
+        <span class="float-icon fi-4">✨</span>
+        <span class="float-icon fi-5">❤️</span>
+        <span class="float-icon fi-6">👑</span>
       </div>
-      <div class="journey-node"><span>2026</span></div>
-      <div class="journey-content">
-        <p class="journey-chapter">Growing Together</p>
-        <h3>More Than Marketing. A Team With a Vision.</h3>
-        <p>Today, GrowMinion's journey is about more than campaigns and rankings. It's about people, collaboration, innovation, and the leadership that brings us together to keep moving forward.</p>
-        <div class="journey-tags">
-          <span>🤝 Teamwork</span><span>⚙️ Innovation</span><span>📈 Growth</span><span>⭐ Impact</span>
+
+      <div class="benefit-cards" id="benefitCards">
+        <div class="benefit-card bn-text" data-index="0">
+          <span class="benefit-icon">💼</span>
+          <span>অফিসের কাজের প্রেসারের সাথে ঘরে নতুন প্রেসার আনলক হবে!</span>
+        </div>
+        <div class="benefit-card bn-text" data-index="1">
+          <span class="benefit-icon">📱</span>
+          <span>ক্লায়েন্টের ডেডলাইনের বদলে 'এত দেরি হলো কেন?' শোনার অভিজ্ঞতা হবে</span>
+        </div>
+        <div class="benefit-card bn-text" data-index="2">
+          <span class="benefit-icon">🫡</span>
+          <span>অফিসে আপনি যতই বস হোন না কেন, বাসায় পার্মানেন্ট জুনিয়র হয়ে থাকতে হবে!</span>
+        </div>
+        <div class="benefit-card bn-text" data-index="3">
+          <span class="benefit-icon">🛒</span>
+          <span>স্প্রিন্ট প্ল্যানিংয়ের বদলে কাঁচাবাজারের ফর্দ ম্যানেজ করার নতুন স্কিল আসবে</span>
+        </div>
+        <div class="benefit-card bn-text" data-index="4">
+          <span class="benefit-icon">🤐</span>
+          <span>তর্কে কখনো জেতা সম্ভব না, এই সত্য মেনে নিয়ে নীরব থাকার চরম ধৈর্য পাবেন</span>
+        </div>
+        <div class="benefit-card bn-text" data-index="5">
+          <span class="benefit-icon">🍗</span>
+          <span>আর যাই হোক ভাই, আমরা কিন্তু রাজকীয় বিয়ের দাওয়াত আর গ্র্যান্ড ট্রিট পাচ্ছি!</span>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="journey-finale">
-    <img class="journey-finale-img" src="./The Journey/best is yet to come.png" alt="Best Is Yet To Come, GrowMinion" loading="lazy" />
-    <div class="journey-finale-body">
-      <p class="journey-chapter">Our Journey Continues</p>
-      <p class="journey-finale-text">To the leader behind the vision, thank you for believing in us, supporting us, and making this journey feel like family.</p>
-      <p class="journey-finale-signoff">Happy Birthday, Boss! <span class="amber-text">♥</span></p>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== MARRIAGE CAMPAIGN ===================== -->
-<section class="section campaign-section" id="marriage">
-  <p class="section-eyebrow">Step Five · Team Intervention</p>
-  <h2 class="section-title bn-heading">ভাই, এবার বিয়ে করেন! <span class="amber-text">👑</span></h2>
-  <p class="section-desc bn-text">বিয়ে করলে সুবিধা কিন্তু কম না!</p>
-
-  <div class="campaign-stage" id="campaignStage">
-    <svg class="campaign-lines" id="campaignLines"></svg>
-
-    <div class="campaign-character">
-      <div class="campaign-char-glow"></div>
-      <img src="./Aayan Al Hasib.png" alt="Boss Aayan" class="campaign-char-photo" />
-      <div class="campaign-crown">👑</div>
-      <span class="float-icon fi-1">❤️</span>
-      <span class="float-icon fi-2">✨</span>
-      <span class="float-icon fi-3">💍</span>
-      <span class="float-icon fi-4">✨</span>
-      <span class="float-icon fi-5">❤️</span>
-      <span class="float-icon fi-6">👑</span>
+    <div class="campaign-cta">
+      <h3 class="bn-heading">তাই আর দেরি কেন, ভাই?</h3>
+      <button class="btn btn-gold bn-text" id="marriageBtn">বিয়ের প্রস্তুতি শুরু করুন 😎</button>
     </div>
 
-    <div class="benefit-cards" id="benefitCards">
-      <div class="benefit-card bn-text" data-index="0">
-        <span class="benefit-icon">💼</span>
-        <span>অফিসের কাজের প্রেসারের সাথে ঘরে নতুন প্রেসার আনলক হবে!</span>
+    <div class="marriage-popup" id="marriagePopup">
+      <div class="marriage-popup-card">
+        <div class="marriage-popup-emoji">😄👑💍</div>
+        <p class="bn-text">বায়োডাটা রেডি রাখেন ভাই, পুরো টিম কিন্তু প্রস্তুত আছে!</p>
+        <button class="btn btn-primary bn-text" id="marriagePopupClose">ঠিক আছে ভাই 😅</button>
       </div>
-      <div class="benefit-card bn-text" data-index="1">
-        <span class="benefit-icon">📱</span>
-        <span>ক্লায়েন্টের ডেডলাইনের বদলে 'এত দেরি হলো কেন?' শোনার অভিজ্ঞতা হবে</span>
+    </div>
+  </section>
+
+  <!-- ===================== WISH WALL ===================== -->
+  <section class="section" id="wishwall">
+    <p class="section-eyebrow">Step Six</p>
+    <h2 class="section-title">The Sticky Wish Wall</h2>
+    <p class="section-desc">Leave a note for the Boss. It'll stay right here for everyone to see.</p>
+
+    <form class="wish-form" id="wishForm">
+      <input type="text" id="wishName" placeholder="Your name" maxlength="30" required />
+      <textarea id="wishMessage" placeholder="Write your wish..." maxlength="220" required></textarea>
+      <div class="wish-form-row">
+        <div class="color-picker" id="colorPicker">
+          <button type="button" class="color-dot" data-color="amber" style="--dot:#F59E0B"></button>
+          <button type="button" class="color-dot" data-color="rose" style="--dot:#F472B6"></button>
+          <button type="button" class="color-dot" data-color="sky" style="--dot:#38BDF8"></button>
+          <button type="button" class="color-dot" data-color="mint" style="--dot:#34D399"></button>
+          <button type="button" class="color-dot" data-color="violet" style="--dot:#A78BFA"></button>
+        </div>
+        <button type="submit" class="btn btn-gold">📌 Pin It</button>
       </div>
-      <div class="benefit-card bn-text" data-index="2">
-        <span class="benefit-icon">🫡</span>
-        <span>অফিসে আপনি যতই বস হোন না কেন, বাসায় পার্মানেন্ট জুনিয়র হয়ে থাকতে হবে!</span>
+    </form>
+
+    <div class="corkboard" id="corkboard"></div>
+  </section>
+
+  <!-- ===================== THE GROWMINION JOURNEY (CAREER) ===================== -->
+  <section class="section career-section" id="careerJourney">
+    <p class="section-eyebrow">Step Seven</p>
+    <h2 class="section-title">The <span class="amber-text">GrowMinion</span> Journey</h2>
+    <p class="section-desc">The inspiring trajectory of vision, leadership, and relentless execution.</p>
+
+    <div class="career-timeline" id="careerTimeline">
+      <div class="career-item">
+        <div class="career-node"></div>
+        <div class="career-card">
+          <div class="career-media">
+            <img src="./The Journey/Career/2024 The Beginning.png" alt="Joining GrowMinion, 2024" loading="lazy" />
+          </div>
+          <div class="career-text">
+            <p class="career-phase">The Beginning</p>
+            <div class="career-meta">
+              <span class="career-year">2024</span>
+              <span class="career-badge">🚀 The Spark</span>
+            </div>
+            <h3 class="career-title">Joining GrowMinion</h3>
+            <p class="career-desc">A new chapter began at GrowMinion. From day one, his energy, dedication, and unique problem-solving skills caught the whole team's attention.</p>
+          </div>
+        </div>
       </div>
-      <div class="benefit-card bn-text" data-index="3">
-        <span class="benefit-icon">🛒</span>
-        <span>স্প্রিন্ট প্ল্যানিংয়ের বদলে কাঁচাবাজারের ফর্দ ম্যানেজ করার নতুন স্কিল আসবে</span>
+
+      <div class="career-item">
+        <div class="career-node"></div>
+        <div class="career-card">
+          <div class="career-media">
+            <img src="./The Journey/Career/2025 Master of Execution.png" alt="Project Manager and Strategic Lead, Early 2025" loading="lazy" />
+          </div>
+          <div class="career-text">
+            <p class="career-phase">Operational Excellence</p>
+            <div class="career-meta">
+              <span class="career-year">Early 2025</span>
+              <span class="career-badge">⚡ Master of Execution</span>
+            </div>
+            <h3 class="career-title">Project Manager &amp; Strategic Lead</h3>
+            <p class="career-desc">He took charge of every critical project at the agency himself. By keeping deadlines tight, clients satisfied, and operations running smoothly, he built a solid foundation for the team.</p>
+          </div>
+        </div>
       </div>
-      <div class="benefit-card bn-text" data-index="4">
-        <span class="benefit-icon">🤐</span>
-        <span>তর্কে কখনো জেতা সম্ভব না, এই সত্য মেনে নিয়ে নীরব থাকার চরম ধৈর্য পাবেন</span>
+
+      <div class="career-item">
+        <div class="career-node"></div>
+        <div class="career-card">
+          <div class="career-media">
+            <img src="./The Journey/Career/2025 Co-Founder.png" alt="Elevated to Co-Founder, Late 2025" loading="lazy" />
+          </div>
+          <div class="career-text">
+            <p class="career-phase">Brotherhood &amp; Co-Founder</p>
+            <div class="career-meta">
+              <span class="career-year">Late 2025</span>
+              <span class="career-badge">👑 The Well-Deserved Honor</span>
+            </div>
+            <h3 class="career-title">Elevated to Co-Founder</h3>
+            <p class="career-desc">In recognition of his extraordinary leadership and contribution, Joy bhai appointed him Co-Founder. It wasn't just a title, it was an honor as a true partner in fulfilling GrowMinion's bigger dream.</p>
+          </div>
+        </div>
       </div>
-      <div class="benefit-card bn-text" data-index="5">
-        <span class="benefit-icon">🍗</span>
-        <span>আর যাই হোক ভাই, আমরা কিন্তু রাজকীয় বিয়ের দাওয়াত আর গ্র্যান্ড ট্রিট পাচ্ছি!</span>
+
+      <div class="career-item career-current">
+        <div class="career-node"></div>
+        <div class="career-card">
+          <div class="career-media">
+            <img src="./The Journey/Career/2026 Building The Empire.png" alt="Leading as Co-Founder and Team Anchor, 2026 to Present" loading="lazy" />
+          </div>
+          <div class="career-text">
+            <p class="career-phase">The Visionary Architect</p>
+            <div class="career-meta">
+              <span class="career-year">2026 to Present</span>
+              <span class="career-badge">🏆 Building The Empire</span>
+              <span class="career-now">Now</span>
+            </div>
+            <h3 class="career-title">Leading as Co-Founder &amp; Team Anchor</h3>
+            <p class="career-desc">As Co-Founder, he now keeps the entire agency and team running in perfect sync. Behind every step toward GrowMinion's next milestone, he is our guiding direction.</p>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="career-note">
+      <img class="career-note-img" src="./The Journey/best is yet to come.png" alt="Best Is Yet To Come, GrowMinion" loading="lazy" />
+      <p>From a great leader to an irreplaceable Co-Founder, we are honored to grow under your wing, Boss!</p>
+    </div>
+  </section>
+
+  <!-- ===================== SIGNATURE WALL ===================== -->
+  <section class="section signature-section" id="signature">
+    <p class="section-eyebrow">Step Eight</p>
+    <h2 class="section-title">Seal It With Your Signature</h2>
+    <p class="section-desc">Draw your signature or a little thank-you note below, Boss.</p>
+
+    <div class="signature-wrap">
+      <div class="signature-frame" id="signatureFrame">
+        <canvas id="signatureCanvas" class="signature-canvas"></canvas>
+        <div class="signature-hint" id="signatureHint">✍️ Sign here</div>
+        <div class="signature-sparkle-layer" id="signatureSparkleLayer"></div>
+      </div>
+
+      <div class="signature-controls">
+        <button class="btn btn-primary" id="signatureClearBtn">🧹 Clear</button>
+      </div>
+
+      <div class="signature-sealed" id="signatureSealed">
+        <div class="signature-seal-badge">🔏</div>
+        <p>Sealed with Love &amp; Respect</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Made with amber light &amp; a lot of respect, for Boss Aayan Al Hasib 🎂</p>
+  </footer>
+
+  <!-- ===================== IMAGE MODAL ===================== -->
+  <div class="modal" id="imgModal">
+    <div class="modal-inner">
+      <button class="modal-close" id="modalClose">✕</button>
+      <img id="modalImg" src="" alt="" />
+      <p id="modalCaption"></p>
     </div>
   </div>
 
-  <div class="campaign-cta">
-    <h3 class="bn-heading">তাই আর দেরি কেন, ভাই?</h3>
-    <button class="btn btn-gold bn-text" id="marriageBtn">বিয়ের প্রস্তুতি শুরু করুন 😎</button>
-  </div>
-
-  <div class="marriage-popup" id="marriagePopup">
-    <div class="marriage-popup-card">
-      <div class="marriage-popup-emoji">😄👑💍</div>
-      <p class="bn-text">বায়োডাটা রেডি রাখেন ভাই, পুরো টিম কিন্তু প্রস্তুত আছে!</p>
-      <button class="btn btn-primary bn-text" id="marriagePopupClose">ঠিক আছে ভাই 😅</button>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WISH WALL ===================== -->
-<section class="section" id="wishwall">
-  <p class="section-eyebrow">Step Six</p>
-  <h2 class="section-title">The Sticky Wish Wall</h2>
-  <p class="section-desc">Leave a note for the Boss. It'll stay right here for everyone to see.</p>
-
-  <form class="wish-form" id="wishForm">
-    <input type="text" id="wishName" placeholder="Your name" maxlength="30" required />
-    <textarea id="wishMessage" placeholder="Write your wish..." maxlength="220" required></textarea>
-    <div class="wish-form-row">
-      <div class="color-picker" id="colorPicker">
-        <button type="button" class="color-dot" data-color="amber" style="--dot:#F59E0B"></button>
-        <button type="button" class="color-dot" data-color="rose" style="--dot:#F472B6"></button>
-        <button type="button" class="color-dot" data-color="sky" style="--dot:#38BDF8"></button>
-        <button type="button" class="color-dot" data-color="mint" style="--dot:#34D399"></button>
-        <button type="button" class="color-dot" data-color="violet" style="--dot:#A78BFA"></button>
-      </div>
-      <button type="submit" class="btn btn-gold">📌 Pin It</button>
-    </div>
-  </form>
-
-  <div class="corkboard" id="corkboard"></div>
-</section>
-
-<!-- ===================== SOUNDBOARD & RESPECT ===================== -->
-<section class="section" id="soundboard">
-  <p class="section-eyebrow">Step Seven</p>
-  <h2 class="section-title">Boss Soundboard</h2>
-  <p class="section-desc">The agency's favorite buttons.</p>
-
-  <div class="soundboard-grid" id="soundboardGrid">
-    <button class="sound-btn" data-sound="approve">Approve PR 🚀</button>
-    <button class="sound-btn" data-sound="coffee">Coffee Break ☕</button>
-    <button class="sound-btn" data-sound="bonus">Bonus Approved 💸</button>
-    <button class="sound-btn" data-sound="deploy">Deploy to Production 🔥</button>
-  </div>
-
-  <div class="respect-panel">
-    <button class="respect-btn" id="respectBtn">🙌 Give Respect</button>
-    <div class="respect-count"><span id="respectCount">0</span> respects given</div>
-  </div>
-  <div class="float-emoji-layer" id="floatEmojiLayer"></div>
-</section>
-
-<footer class="footer">
-  <p>Made with amber light &amp; a lot of respect, for Boss Aayan Al Hasib 🎂</p>
-</footer>
-
-<!-- ===================== IMAGE MODAL ===================== -->
-<div class="modal" id="imgModal">
-  <div class="modal-inner">
-    <button class="modal-close" id="modalClose">✕</button>
-    <img id="modalImg" src="" alt="" />
-    <p id="modalCaption"></p>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script src="./app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="./app.js"></script>
 </body>
+
 </html>

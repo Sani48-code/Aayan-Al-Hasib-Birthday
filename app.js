@@ -83,7 +83,7 @@ const TEAM_MESSAGES = [
   },
   {
     name: 'Naimur Sayem',
-    role: 'Senior Projects Manager',
+    role: 'Team Leader',
     photo: './Team Member/Naimur Sayem.png',
     lang: 'bn',
     message: 'ভাই, আজ আমি যেই জায়গায় দাঁড়িয়ে আছি, এর পুরো কৃতিত্ব আপনার। একদম নতুন অবস্থায় যখন কিছুই জানতাম না, তখন আপনি আমাকে দায়িত্ব দিয়েছিলেন, বিশ্বাস করেছিলেন। সেই বিশ্বাসটাই আমাকে আজ সিনিয়র পজিশনে পৌঁছে দিয়েছে। আপনি কখনো উপর থেকে কথা বলেননি, বরং সবসময় পাশে থেকে সাহস জুগিয়েছেন। আপনার নেতৃত্ব না থাকলে আজকের আমি হয়তো তৈরিই হতাম না। জন্মদিনে দোয়া করি, আপনি আরও উঁচুতে উঠুন, আর আমরা সবাই আপনার সাথেই থাকব। শুভ জন্মদিন বস।',
@@ -101,7 +101,22 @@ const TEAM_MESSAGES = [
     role: 'Project Manager',
     photo: './Team Member/Shawn Datta.png',
     lang: 'bn',
-    message: 'ভাই, যেদিন প্রথম জয়েন করেছিলাম, তখন হাতে কোনো অভিজ্ঞতা ছিল না, ছিল শুধু ইচ্ছা। আপনি সেই ইচ্ছাটাকেই বিশ্বাস করেছিলেন। এরপর প্রতিটা দিন কিছু না কিছু শিখিয়েছেন, ভুল করলেও রাগ করেননি, বরং বুঝিয়ে দিয়েছেন কীভাবে ঠিক করতে হয়। শূন্য থেকে আজকের গ্রোমিনিয়ন পর্যন্ত যে জার্নি, তার একটা ছোট অংশ হতে পেরে নিজেকে ভাগ্যবান মনে হয়। জন্মদিনে দোয়া করি, আপনার স্বপ্নগুলো আরও বড় হোক, আর আমরা সবাই মিলে সেটা সত্যি করি। শুভ জন্মদিন, ভাই।',
+    message: 'ভাই, যেদিন প্রথম জয়েন করেছিলাম, তখন হাতে কোনো অভিজ্ঞতা ছিল না, Local SEO কীভাবে করতে হয় সেটাও ভালোভাবে বুঝতাম না। ছিল শুধু শেখার ইচ্ছা। আপনি সেই ইচ্ছাটাকেই বিশ্বাস করেছিলেন। এরপর প্রতিটা দিন কিছু না কিছু শিখিয়েছেন। ঘণ্টার পর ঘণ্টা মিটিংয়ে সময় দিয়েছেন, কখনো বিরক্ত হননি; বরং ভাইয়ের মতো করে বুঝিয়েছেন। ভুল করলে রাগ না করে দেখিয়েছেন কীভাবে সেটা ঠিক করতে হয়। শুধু SEO-ই শেখাননি, এর বাইরেও অনেক কিছু শিখিয়েছেন, pressure situation কীভাবে handle করতে হয়, client কীভাবে manage করতে হয়, team কীভাবে manage করতে হয়, team-এর সবার সঙ্গে কীভাবে behave করতে হয় এবং কোন পরিস্থিতিতে কীভাবে নিজেকে সামলাতে হয়। এমনকি official কাজের বাইরেও অনেক personal decision নেওয়ার সময় আপনার advice ও support পেয়েছি। অনেক সময় হয়তো বুঝতেও পারেননি, কিন্তু আপনার সেই ছোট ছোট advice আর support আমার জন্য অনেক বড় ব্যাপার ছিল। শূন্য থেকে আজকের Grominion পর্যন্ত যে journey, তার একটা ছোট অংশ হতে পেরে নিজেকে সত্যিই ভাগ্যবান মনে হয়। এই journey-তে আপনার কাছ থেকে শুধু কাজ শেখার সুযোগই পাইনি, বরং একজন মানুষ হিসেবে নিজেকে আরও ভালোভাবে গড়ে তোলার সুযোগও পেয়েছি। জন্মদিনে দোয়া করি, আপনার স্বপ্নগুলো আরও বড় হোক, আর আমরা সবাই মিলে সেই স্বপ্নগুলো একদিন সত্যি করি। সামনে যেন আরও অনেক দূর একসাথে যেতে পারি। আর হ্যাঁ, সবশেষে একটা বিশেষ দোয়া, আপনার বিয়েটাও যেন খুব তাড়াতাড়ি খেতে পারি! 😂❤️ শুভ জন্মদিন, ভাই। ❤️',
+  },
+ {
+    name: 'Daloar Hossain Sabbir',
+    role: 'SEO Executive',
+    photo: './Team Member/Daloar.png',
+    lang: 'bn',
+    message: `জন্মদিনের অনেক অনেক শুভেচ্ছা, আয়ান ভাই! 🎂🎉
+
+আপনার সাথে Grow Minion এ কাজ করতে এসে একটা জিনিস বুঝলাম — সত্যিকারের leader কাকে বলে। আপনি কখনো panic করেন না, যত বড় সমস্যাই আসুক শান্ত মাথায় solution বের করেন। এই জিনিসটা অনেকের মধ্যে দেখা যায় না।
+
+আপনার share করা insight গুলো শুধু কাজের না, genuinely চিন্তা করার মতো। প্রতিটা কথায় experience আর depth বোঝা যায়। আপনার কাছ থেকে শেখার সুযোগ পাওয়াটাকে আমি সত্যিকার অর্থেই lucky মনে করি।
+
+Grow Minion যেদিন থেকে শুরু হয়েছে, আপনি যে vision নিয়ে এগিয়ে যাচ্ছেন সেটা দেখে অনুপ্রেরণা পাই। আশা করি এই journey আরও অনেক দূর যাবে, আরও বড় হবে।
+
+জন্মদিনটা অনেক আনন্দে কাটুক, ভালো থাকুন সবসময়। আপনার জন্য অনেক দোয়া রইলো! 🙏❤️`,
   },
 ];
 
@@ -311,10 +326,10 @@ const AudioEngine = (() => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.amber
-        ? `rgba(180,83,9,${p.alpha})`
-        : `rgba(120,110,95,${p.alpha * 0.6})`;
-      ctx.shadowBlur = p.amber ? 8 : 0;
-      ctx.shadowColor = 'rgba(180,83,9,0.7)';
+        ? `rgba(245,158,11,${p.alpha})`
+        : `rgba(255,255,255,${p.alpha * 0.7})`;
+      ctx.shadowBlur = p.amber ? 8 : 3;
+      ctx.shadowColor = p.amber ? 'rgba(245,158,11,0.8)' : 'rgba(255,255,255,0.6)';
       ctx.fill();
     });
     requestAnimationFrame(tick);
@@ -408,14 +423,14 @@ document.getElementById('musicToggle').addEventListener('click', function () {
         spread: 70,
         angle: 60,
         origin: { x: 0.15, y: 0.6 },
-        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#78350F'],
+        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#fff'],
       });
       confetti({
         particleCount: 90,
         spread: 70,
         angle: 120,
         origin: { x: 0.85, y: 0.6 },
-        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#78350F'],
+        colors: ['#F59E0B', '#FBBF24', '#fcd34d', '#fff'],
       });
     }, 500);
     setTimeout(() => {
@@ -497,7 +512,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
         particleCount: 40,
         spread: 60,
         origin: { y: 0.7 },
-        colors: ['#F59E0B', '#FBBF24', '#78350F'],
+        colors: ['#F59E0B', '#FBBF24', '#fff'],
       });
     }
 
@@ -536,7 +551,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
   video.muted = true;
   const playPromise = video.play();
   if (playPromise && playPromise.catch) {
-    playPromise.catch(() => {});
+    playPromise.catch(() => { });
   }
 })();
 
@@ -721,7 +736,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
   function makeCard(member, isSpotlight) {
     const card = document.createElement('div');
     card.className = 'team-card' + (isSpotlight ? ' team-card-spotlight' : '');
-    const messageClass = 'team-message' + (member.lang === 'bn' ? ' bn-text' : '');
+    const messageClass = 'team-message' + (member.lang === 'bn' ? ' bn-text' : '') + (isSpotlight ? '' : ' clamped');
     card.innerHTML = `
       <div class="team-quote-mark">“</div>
       <div class="team-avatar-wrap">
@@ -729,6 +744,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
         <div class="team-avatar-fallback">${member.initials || initials(member.name)}</div>
       </div>
       <p class="${messageClass}">${member.message}</p>
+      ${isSpotlight ? '' : '<button type="button" class="team-see-more" hidden>See More</button>'}
       <div class="team-name">${member.name}</div>
       <div class="team-role">${member.role}</div>
     `;
@@ -736,6 +752,22 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     const imgEl = card.querySelector('.team-avatar-img');
     const fallbackEl = card.querySelector('.team-avatar-fallback');
     loadImageWithFallback(imgEl, fallbackEl, member.photo);
+
+    if (!isSpotlight) {
+      const messageEl = card.querySelector('.team-message');
+      const seeMoreBtn = card.querySelector('.team-see-more');
+      seeMoreBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const expanded = messageEl.classList.toggle('expanded');
+        messageEl.classList.toggle('clamped', !expanded);
+        seeMoreBtn.textContent = expanded ? 'See Less' : 'See More';
+      });
+      requestAnimationFrame(() => {
+        if (messageEl.scrollHeight > messageEl.clientHeight + 2) {
+          seeMoreBtn.hidden = false;
+        }
+      });
+    }
 
     if (member.photo) {
       avatarWrap.classList.add('team-avatar-clickable');
@@ -838,6 +870,8 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
     while (svg.childNodes.length > 1) svg.removeChild(svg.lastChild);
 
+    const CHAR_RADIUS = 108; // just outside the character photo + glow, so lines never cross the face
+
     cards.forEach((card, i) => {
       const angle = ((Math.PI * 2) / cards.length) * i - Math.PI / 2;
       const x = cx + radius * Math.cos(angle);
@@ -846,10 +880,13 @@ document.getElementById('musicToggle').addEventListener('click', function () {
       card.style.top = y + 'px';
       card.style.setProperty('--reveal-delay', (i * 0.13) + 's');
 
-      const length = Math.hypot(x - cx, y - cy);
+      const startX = cx + CHAR_RADIUS * Math.cos(angle);
+      const startY = cy + CHAR_RADIUS * Math.sin(angle);
+
+      const length = Math.hypot(x - startX, y - startY);
       const line = document.createElementNS(SVG_NS, 'line');
-      line.setAttribute('x1', cx);
-      line.setAttribute('y1', cy);
+      line.setAttribute('x1', startX);
+      line.setAttribute('y1', startY);
       line.setAttribute('x2', x);
       line.setAttribute('y2', y);
       line.setAttribute('class', 'campaign-line');
@@ -890,7 +927,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
       particleCount: 80,
       spread: 90,
       origin: { y: 0.6 },
-      colors: ['#F59E0B', '#FBBF24', '#78350F'],
+      colors: ['#F59E0B', '#FBBF24', '#fff'],
     });
     AudioEngine.chime(659.25, 0, 0.25, 0.2);
     AudioEngine.chime(880, 0.12, 0.3, 0.2);
@@ -974,51 +1011,154 @@ document.getElementById('musicToggle').addEventListener('click', function () {
 })();
 
 /* =========================================================================
-   SOUNDBOARD & RESPECT COUNTER
+   CAREER TIMELINE — scroll-triggered reveal for each milestone
    ========================================================================= */
-(function initSoundboard() {
-  const SOUNDS = {
-    approve: [523.25, 659.25, 783.99],
-    coffee: [392.0, 440.0],
-    bonus: [523.25, 659.25, 830.61, 1046.5],
-    deploy: [220.0, 277.18, 329.63, 392.0, 466.16],
-  };
-  document.querySelectorAll('.sound-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const notes = SOUNDS[btn.dataset.sound] || [440];
-      notes.forEach((n, i) => AudioEngine.eightBit(n, i * 0.09));
-      btn.style.transform = 'scale(0.92)';
-      setTimeout(() => (btn.style.transform = ''), 140);
+(function initCareerTimeline() {
+  const items = document.querySelectorAll('.career-item');
+  if (!items.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+
+  items.forEach((item, i) => {
+    item.style.transitionDelay = (i * 0.12) + 's';
+    observer.observe(item);
   });
 })();
 
-(function initRespect() {
-  const STORAGE_KEY = 'ayan_birthday_respect_count';
-  const btn = document.getElementById('respectBtn');
-  const countEl = document.getElementById('respectCount');
-  const layer = document.getElementById('floatEmojiLayer');
-  const EMOJIS = ['🙌', '👏', '❤️', '✨', '🎉'];
+/* =========================================================================
+   SIGNATURE WALL — draw-to-sign canvas with sparkle seal
+   ========================================================================= */
+(function initSignatureWall() {
+  const frame = document.getElementById('signatureFrame');
+  const canvas = document.getElementById('signatureCanvas');
+  if (!frame || !canvas) return;
+  const ctx = canvas.getContext('2d');
+  const hint = document.getElementById('signatureHint');
+  const sparkleLayer = document.getElementById('signatureSparkleLayer');
+  const clearBtn = document.getElementById('signatureClearBtn');
+  const sealed = document.getElementById('signatureSealed');
+  const STORAGE_KEY = 'aayan_birthday_signature';
 
-  let count = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
-  countEl.textContent = count;
+  let drawing = false;
+  let hasStroke = false;
+  let lastX = 0, lastY = 0;
 
-  btn.addEventListener('click', (e) => {
-    count++;
-    countEl.textContent = count;
-    localStorage.setItem(STORAGE_KEY, String(count));
-    AudioEngine.chime(880, 0, 0.2, 0.15);
-
-    for (let i = 0; i < 3; i++) {
-      const el = document.createElement('div');
-      el.className = 'float-emoji';
-      el.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-      const rect = btn.getBoundingClientRect();
-      el.style.left = (rect.left + rect.width / 2 + (Math.random() * 40 - 20)) + 'px';
-      el.style.top = rect.top + 'px';
-      el.style.setProperty('--fx', (Math.random() * 60 - 30) + 'px');
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 2200);
+  function resizeCanvas(preserve) {
+    const prevData = preserve && hasStroke ? canvas.toDataURL() : null;
+    const rect = frame.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.scale(dpr, dpr);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#8a4c26';
+    if (prevData) {
+      const img = new Image();
+      img.onload = () => ctx.drawImage(img, 0, 0, rect.width, rect.height);
+      img.src = prevData;
     }
+  }
+  resizeCanvas(false);
+  window.addEventListener('resize', () => resizeCanvas(true));
+
+  function pointerPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  }
+
+  function spawnSparkles(x, y, count = 6) {
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('div');
+      s.className = 'signature-sparkle';
+      s.style.left = x + 'px';
+      s.style.top = y + 'px';
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 20 + Math.random() * 40;
+      s.style.setProperty('--sx', Math.cos(angle) * dist + 'px');
+      s.style.setProperty('--sy', Math.sin(angle) * dist + 'px');
+      sparkleLayer.appendChild(s);
+      setTimeout(() => s.remove(), 900);
+    }
+  }
+
+  function seal() {
+    if (sealed.classList.contains('show')) return;
+    sealed.classList.add('show');
+    AudioEngine.chime(659.25, 0, 0.3, 0.18);
+    AudioEngine.chime(880, 0.15, 0.35, 0.18);
+    confetti({
+      particleCount: 50,
+      spread: 80,
+      origin: { y: 0.6 },
+      colors: ['#D97706', '#B45309', '#FDE68A'],
+    });
+  }
+
+  function startStroke(e) {
+    drawing = true;
+    hint.classList.add('hidden');
+    const p = pointerPos(e);
+    lastX = p.x; lastY = p.y;
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+  }
+  function moveStroke(e) {
+    if (!drawing) return;
+    const p = pointerPos(e);
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+    if (Math.random() < 0.25) spawnSparkles(p.x, p.y, 1);
+    lastX = p.x; lastY = p.y;
+  }
+  function endStroke() {
+    if (!drawing) return;
+    drawing = false;
+    if (!hasStroke) {
+      hasStroke = true;
+      spawnSparkles(canvas.clientWidth / 2, canvas.clientHeight / 2, 14);
+      seal();
+      try { localStorage.setItem(STORAGE_KEY, canvas.toDataURL()); } catch (err) { }
+    } else {
+      try { localStorage.setItem(STORAGE_KEY, canvas.toDataURL()); } catch (err) { }
+    }
+  }
+
+  canvas.addEventListener('pointerdown', (e) => { canvas.setPointerCapture(e.pointerId); startStroke(e); });
+  canvas.addEventListener('pointermove', moveStroke);
+  canvas.addEventListener('pointerup', endStroke);
+  canvas.addEventListener('pointerleave', endStroke);
+
+  clearBtn.addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    hasStroke = false;
+    hint.classList.remove('hidden');
+    sealed.classList.remove('show');
+    localStorage.removeItem(STORAGE_KEY);
   });
+
+  // Restore a previously drawn signature, if any.
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const img = new Image();
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, canvas.clientWidth, canvas.clientHeight);
+        hasStroke = true;
+        hint.classList.add('hidden');
+        sealed.classList.add('show');
+      };
+      img.src = saved;
+    }
+  } catch (err) { }
 })();
