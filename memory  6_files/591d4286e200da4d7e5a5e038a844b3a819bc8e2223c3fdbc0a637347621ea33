@@ -1,0 +1,787 @@
+(function () {
+  // Check if the chatbot is already loaded to prevent duplicates
+  if (document.getElementById("minniyo-chatbot-button")) {
+    return;
+  }
+
+  var isOpen = false;
+  var isMobile = window.innerWidth <= 768;
+  var greetingVisible = true;
+  var externalButtonVisible = false;
+  var widgetSettings = JSON.parse('{\u0022appearance\u0022:{\u0022color\u0022:\u0022#f1d51f\u0022}}');
+  var appearance = widgetSettings && widgetSettings.appearance
+    ? widgetSettings.appearance
+    : {};
+  var supportedPositions = [
+    "top-left",
+    "top-center",
+    "top-right",
+    "bottom-left",
+    "bottom-center",
+    "bottom-right",
+  ];
+  var widgetPosition = supportedPositions.includes(appearance.position)
+    ? appearance.position
+    : "bottom-right";
+  var introSize = ["sm", "md", "lg"].includes(appearance.intro_size)
+    ? appearance.intro_size
+    : "md";
+  var chatbotMedia = {
+    mode: 'video',
+    image: null,
+    gif: 'https:\/\/app.minniyo.com\/uploads\/chatbots\/intro_gif\/chatbot_5_6a3e1b613c808.gif',
+    gifStatus: 'ready',
+    avatar: 'https:\/\/app.minniyo.com\/uploads\/chatbots\/avatars\/images_6a3e1e82ad2ed9.01924901.jpeg',
+  };
+  var launcherMediaUrl = chatbotMedia.avatar;
+
+  if (chatbotMedia.mode === "image" && chatbotMedia.image) {
+    launcherMediaUrl = chatbotMedia.image;
+  } else if (
+    chatbotMedia.mode === "video" &&
+    chatbotMedia.gifStatus === "ready" &&
+    chatbotMedia.gif
+  ) {
+    launcherMediaUrl = chatbotMedia.gif;
+  }
+
+  function getLauncherMetrics() {
+    var sizeMap = isMobile
+      ? { sm: 64, md: 80, lg: 96 }
+      : { sm: 80, md: 104, lg: 128 };
+    var avatar = sizeMap[introSize];
+
+    return {
+      avatar: avatar,
+      ping: Math.round(avatar * 0.64),
+      indicator: Math.round(avatar * 0.16),
+      indicatorBorder: Math.max(2, Math.round(avatar * 0.022)),
+      indicatorInset: Math.max(3, Math.round(avatar * 0.04)),
+    };
+  }
+
+  // Add CSS animations and styles
+  var style = document.createElement("style");
+  style.textContent = `
+    @keyframes minniyo-fadeIn-kf {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes minniyo-ping-kf {
+        0% { transform: scale(1); opacity: 0.3; }
+        75%, 100% {
+          transform: scale(2.3);
+          opacity: 0;
+        }
+    }
+    
+    @keyframes minniyo-slideInRight-kf {
+        from { 
+          opacity: 0; 
+          transform: translateX(20px) scale(0.8); 
+        }
+        to { 
+          opacity: 1; 
+          transform: translateX(0) scale(1); 
+        }
+    }
+    
+    @keyframes minniyo-slideOutRight-kf {
+        from { 
+          opacity: 1; 
+          transform: translateX(0) scale(1); 
+        }
+        to { 
+          opacity: 0; 
+          transform: translateX(20px) scale(0.8); 
+        }
+    }
+
+    @keyframes minniyo-chatOpen-kf {
+        from {
+          opacity: 0;
+          transform: translate(
+            var(--minniyo-iframe-x, 0),
+            var(--minniyo-iframe-y, 18px)
+          ) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translate(var(--minniyo-iframe-x, 0), 0) scale(1);
+        }
+    }
+    
+    .minniyo-fade-in {
+      animation: minniyo-fadeIn-kf 0.3s ease-out;
+    }
+    
+    .minniyo-ping {
+      animation: minniyo-ping-kf 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    
+    .minniyo-chatbot-button:hover .minniyo-ping-span {
+      display: none;
+    }
+    
+    .minniyo-chatbot-iframe {
+      --minniyo-iframe-y: 18px;
+      animation: minniyo-chatOpen-kf 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-origin: bottom center;
+    }
+
+    .minniyo-chatbot-iframe--top {
+      --minniyo-iframe-y: -18px;
+      transform-origin: top center;
+    }
+    
+    .minniyo-greeting-bubble {
+      animation: minniyo-slideInRight-kf 0.4s ease-out;
+    }
+    
+    .minniyo-greeting-bubble.slide-out {
+      animation: minniyo-slideOutRight-kf 0.3s ease-in forwards;
+    }
+
+    .minniyo-greeting-bubble:hover #minniyo-greeting-close-button {
+      opacity: 1 !important;
+    }
+    
+    .minniyo-external-icon {
+      transition: transform 0.2s ease;
+    }
+    
+    .minniyo-external-icon:hover {
+      transform: scale(1.1);
+    }
+    
+    .minniyo-external-button {
+      animation: minniyo-slideInRight-kf 0.4s ease-out;
+    }
+    
+    .minniyo-external-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .minniyo-chatbot-iframe {
+        animation-duration: 0.01ms;
+      }
+    }`;
+
+  document.head.appendChild(style);
+
+  // Create the main container
+  var buttonContainer = document.createElement("div");
+  buttonContainer.id = "minniyo-chatbot-button";
+  buttonContainer.style.cssText = [
+    "position: fixed",
+    "bottom: 30px",
+    "right: 30px",
+    "z-index: 999998",
+    "display: flex",
+    "flex-direction: column",
+    "align-items: flex-end",
+    "gap: 15px",
+  ].join(";");
+
+  // Create greeting bubble
+  var greetingBubble = document.createElement("div");
+  greetingBubble.className = "minniyo-greeting-bubble";
+  greetingBubble.style.cssText = [
+    "background: white",
+    "border-radius: 20px",
+    "padding: 12px 16px",
+    "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)",
+    "position: relative",
+    "max-width: 200px",
+    "border: 1px solid #e5e7eb",
+    "cursor: pointer",
+  ].join(";");
+
+  // Create greeting text
+  var greetingText = document.createElement("div");
+  greetingText.style.cssText = [
+    'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif, system-ui',
+    "font-size: 12px",
+    "color: #374151",
+    "font-weight: 400",
+    "line-height: 1.4",
+    "display: flex",
+    "align-items: center",
+    "gap: 8px",
+  ].join(";");
+  var greetingCopy = document.createElement("div");
+  greetingCopy.textContent = 'Welcome to GrowMinion \ud83d\udc4b Need help with SEO, Google Ads, or local lead generation?';
+  greetingText.appendChild(greetingCopy);
+
+  // Create external link icon
+  var externalIcon = document.createElement("a");
+  externalIcon.href = "https://app.minniyo.com/chat/growminion-5";
+  externalIcon.target = "_blank";
+  externalIcon.className = "minniyo-external-icon";
+  externalIcon.style.cssText = [
+    "display: inline-flex",
+    "align-items: center",
+    "justify-content: center",
+    "width: 20px",
+    "height: 20px",
+    "color: #6b7280",
+    "text-decoration: none",
+    "margin-left: 4px",
+  ].join(";");
+
+  // External link SVG icon
+  externalIcon.innerHTML = `
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15,3 21,3 21,9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+    </svg>
+    `;
+
+  // Add external icon to greeting text
+  greetingText.appendChild(externalIcon);
+
+  // Create speech bubble tail
+  var bubbleTail = document.createElement("div");
+  bubbleTail.style.cssText = [
+    "position: absolute",
+    "right: -7px",
+    "top: 50%",
+    "transform: translateY(-50%)",
+    "width: 0",
+    "height: 0",
+    "border-top: 8px solid transparent",
+    "border-bottom: 8px solid transparent",
+    "border-left: 8px solid #fcfcfc",
+    "z-index: 15",
+  ].join(";");
+
+  // Create tail border (for the shadow effect)
+  var bubbleTailBorder = document.createElement("div");
+  bubbleTailBorder.style.cssText = [
+    "position: absolute",
+    "right: -9px",
+    "top: 50%",
+    "transform: translateY(-50%)",
+    "width: 0",
+    "height: 0",
+    "border-top: 9px solid transparent",
+    "border-bottom: 9px solid transparent",
+    "border-left: 9px solid #e5e7eb",
+    "z-index: 10",
+  ].join(";");
+
+  // Assemble greeting bubble
+  greetingBubble.appendChild(greetingText);
+  greetingBubble.appendChild(bubbleTailBorder);
+  greetingBubble.appendChild(bubbleTail);
+
+  // Create close button for greeting bubble
+  var closeButton = document.createElement("button");
+  closeButton.id = "minniyo-greeting-close-button";
+  closeButton.style.cssText = [
+    "position: absolute",
+    "top: -4px",
+    "right: -4px",
+    "width: 20px",
+    "height: 20px",
+    "padding: 4px",
+    "border-radius: 50%",
+    "background: #6b7280",
+    "border: none",
+    "color: white",
+    "cursor: pointer",
+    "display: flex",
+    "align-items: center",
+    "justify-content: center",
+    "opacity: 0.95",
+    "z-index: 20",
+    "opacity: 0",
+    "transition: opacity 0.2s ease",
+  ].join(";");
+  closeButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>`;
+  closeButton.title = "Close";
+
+  greetingBubble.appendChild(closeButton);
+
+  // Create external tab button (initially hidden)
+  var externalButton = document.createElement("a");
+  externalButton.href = "https://app.minniyo.com/chat/growminion-5";
+  externalButton.target = "_blank";
+  externalButton.className = "minniyo-external-button";
+  externalButton.title = "Open in new tab";
+  externalButton.style.cssText = [
+    "display: none",
+    "align-items: center",
+    "justify-content: center",
+    "width: 32px",
+    "height: 32px",
+    "background: white",
+    "border-radius: 50%",
+    "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)",
+    "cursor: pointer",
+    "transition: all 0.2s ease",
+    "text-decoration: none",
+    "color: #6b7280",
+  ].join(";");
+
+  // External button icon
+  externalButton.innerHTML = `
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15,3 21,3 21,9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+    </svg>
+    `;
+
+  // Create the button wrapper
+  var buttonWrapper = document.createElement("div");
+  buttonWrapper.style.cssText = ["position: relative"].join(";");
+
+  // Create the button
+  var button = document.createElement("button");
+  button.className = "minniyo-chatbot-button minniyo-fade-in";
+  button.style.cssText = [
+    "cursor: pointer",
+    "position: relative",
+    "border: none",
+    "background: none",
+    "padding: 0",
+    "border-radius: 50%",
+    "box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+  ].join(";");
+
+  // Create the animated ping background
+  var pingSpan = document.createElement("span");
+  pingSpan.className = "minniyo-ping-span minniyo-ping";
+  var launcherMetrics = getLauncherMetrics();
+  var pingSize = launcherMetrics.ping + "px";
+  pingSpan.style.cssText = [
+    "position: absolute",
+    "inset: 0",
+    "margin: auto",
+    "width: " + pingSize,
+    "height: " + pingSize,
+    "border-radius: 50%",
+    "background-color: #4ade80",
+    "opacity: 0.3",
+  ].join(";");
+
+  // Create the avatar image
+  var avatarImg = document.createElement("img");
+  var avatarSize = launcherMetrics.avatar + "px";
+  avatarImg.style.cssText = [
+    "width: " + avatarSize,
+    "height: " + avatarSize,
+    "object-fit: cover",
+    "border-radius: 50%",
+    "position: relative",
+    "z-index: 10",
+    "pointer-events: none",
+    "display: block",
+  ].join(";");
+  avatarImg.src = launcherMediaUrl;
+
+  // Create the online indicator
+  var onlineIndicator = document.createElement("span");
+  var indicatorSize = launcherMetrics.indicator + "px";
+  var indicatorBorder = launcherMetrics.indicatorBorder + "px";
+  var indicatorBottom = launcherMetrics.indicatorInset + "px";
+  var indicatorRight = launcherMetrics.indicatorInset + "px";
+  onlineIndicator.style.cssText = [
+    "position: absolute",
+    "bottom: " + indicatorBottom,
+    "right: " + indicatorRight,
+    "width: " + indicatorSize,
+    "height: " + indicatorSize,
+    "background-color: #22c55e",
+    "border: " + indicatorBorder + " solid white",
+    "border-radius: 50%",
+    "opacity: 0.95",
+    "z-index: 15",
+  ].join(";");
+
+  // Assemble the button
+  button.appendChild(pingSpan);
+  button.appendChild(avatarImg);
+  button.appendChild(onlineIndicator);
+  buttonWrapper.appendChild(button);
+
+  // Create a wrapper for greeting bubble and button
+  var bottomRow = document.createElement("div");
+  bottomRow.style.cssText = [
+    "display: flex",
+    "align-items: center",
+    "gap: 15px",
+  ].join(";");
+
+  bottomRow.appendChild(greetingBubble);
+  bottomRow.appendChild(buttonWrapper);
+
+  // Assemble the main container
+  buttonContainer.appendChild(externalButton);
+  buttonContainer.appendChild(bottomRow);
+
+  function updateLauncherSizes() {
+    var metrics = getLauncherMetrics();
+    avatarImg.style.width = metrics.avatar + "px";
+    avatarImg.style.height = metrics.avatar + "px";
+    pingSpan.style.width = metrics.ping + "px";
+    pingSpan.style.height = metrics.ping + "px";
+    onlineIndicator.style.width = metrics.indicator + "px";
+    onlineIndicator.style.height = metrics.indicator + "px";
+    onlineIndicator.style.borderWidth = metrics.indicatorBorder + "px";
+    onlineIndicator.style.bottom = metrics.indicatorInset + "px";
+    onlineIndicator.style.right = metrics.indicatorInset + "px";
+  }
+
+  function resetGreetingTail(tail) {
+    tail.style.display = "block";
+    tail.style.top = "auto";
+    tail.style.right = "auto";
+    tail.style.bottom = "auto";
+    tail.style.left = "auto";
+    tail.style.transform = "none";
+    tail.style.borderTop = "0";
+    tail.style.borderRight = "0";
+    tail.style.borderBottom = "0";
+    tail.style.borderLeft = "0";
+  }
+
+  function setGreetingTail(vertical, horizontal) {
+    resetGreetingTail(bubbleTail);
+    resetGreetingTail(bubbleTailBorder);
+
+    if (horizontal === "left") {
+      bubbleTail.style.left = "-7px";
+      bubbleTail.style.top = "50%";
+      bubbleTail.style.transform = "translateY(-50%)";
+      bubbleTail.style.borderTop = "8px solid transparent";
+      bubbleTail.style.borderBottom = "8px solid transparent";
+      bubbleTail.style.borderRight = "8px solid #fcfcfc";
+      bubbleTailBorder.style.left = "-9px";
+      bubbleTailBorder.style.top = "50%";
+      bubbleTailBorder.style.transform = "translateY(-50%)";
+      bubbleTailBorder.style.borderTop = "9px solid transparent";
+      bubbleTailBorder.style.borderBottom = "9px solid transparent";
+      bubbleTailBorder.style.borderRight = "9px solid #e5e7eb";
+    } else if (horizontal === "right") {
+      bubbleTail.style.right = "-7px";
+      bubbleTail.style.top = "50%";
+      bubbleTail.style.transform = "translateY(-50%)";
+      bubbleTail.style.borderTop = "8px solid transparent";
+      bubbleTail.style.borderBottom = "8px solid transparent";
+      bubbleTail.style.borderLeft = "8px solid #fcfcfc";
+      bubbleTailBorder.style.right = "-9px";
+      bubbleTailBorder.style.top = "50%";
+      bubbleTailBorder.style.transform = "translateY(-50%)";
+      bubbleTailBorder.style.borderTop = "9px solid transparent";
+      bubbleTailBorder.style.borderBottom = "9px solid transparent";
+      bubbleTailBorder.style.borderLeft = "9px solid #e5e7eb";
+    } else if (vertical === "top") {
+      bubbleTail.style.top = "-7px";
+      bubbleTail.style.left = "50%";
+      bubbleTail.style.transform = "translateX(-50%)";
+      bubbleTail.style.borderRight = "8px solid transparent";
+      bubbleTail.style.borderBottom = "8px solid #fcfcfc";
+      bubbleTail.style.borderLeft = "8px solid transparent";
+      bubbleTailBorder.style.top = "-9px";
+      bubbleTailBorder.style.left = "50%";
+      bubbleTailBorder.style.transform = "translateX(-50%)";
+      bubbleTailBorder.style.borderRight = "9px solid transparent";
+      bubbleTailBorder.style.borderBottom = "9px solid #e5e7eb";
+      bubbleTailBorder.style.borderLeft = "9px solid transparent";
+    } else {
+      bubbleTail.style.bottom = "-7px";
+      bubbleTail.style.left = "50%";
+      bubbleTail.style.transform = "translateX(-50%)";
+      bubbleTail.style.borderTop = "8px solid #fcfcfc";
+      bubbleTail.style.borderRight = "8px solid transparent";
+      bubbleTail.style.borderLeft = "8px solid transparent";
+      bubbleTailBorder.style.bottom = "-9px";
+      bubbleTailBorder.style.left = "50%";
+      bubbleTailBorder.style.transform = "translateX(-50%)";
+      bubbleTailBorder.style.borderTop = "9px solid #e5e7eb";
+      bubbleTailBorder.style.borderRight = "9px solid transparent";
+      bubbleTailBorder.style.borderLeft = "9px solid transparent";
+    }
+  }
+
+  function applyButtonPosition() {
+    var parts = widgetPosition.split("-");
+    var vertical = parts[0];
+    var horizontal = parts[1];
+    var edgeMargin = isMobile ? 24 : 30;
+    var offset = edgeMargin + "px";
+    var launcherSize = getLauncherMetrics().avatar;
+    var mobilePopoverInset = 8;
+
+    buttonContainer.style.top = "auto";
+    buttonContainer.style.bottom = "auto";
+    buttonContainer.style.left = "auto";
+    buttonContainer.style.right = "auto";
+    buttonContainer.style.transform = "none";
+    buttonContainer.style[vertical] = offset;
+    buttonContainer.style.alignItems =
+      horizontal === "left"
+        ? "flex-start"
+        : horizontal === "center"
+          ? "center"
+          : "flex-end";
+    var reservedMobileWidth =
+      edgeMargin * 2 +
+      mobilePopoverInset +
+      (horizontal === "center" ? 0 : launcherSize + 15) +
+      10;
+    greetingBubble.style.maxWidth = isMobile
+      ? "calc(100vw - " + reservedMobileWidth + "px)"
+      : "200px";
+    buttonContainer.insertBefore(
+      vertical === "top" ? bottomRow : externalButton,
+      vertical === "top" ? externalButton : bottomRow,
+    );
+
+    if (horizontal === "left") {
+      buttonContainer.style.left = offset;
+      bottomRow.style.flexDirection = "row";
+      bottomRow.insertBefore(buttonWrapper, greetingBubble);
+    } else if (horizontal === "center") {
+      buttonContainer.style.left = "50%";
+      buttonContainer.style.transform = "translateX(-50%)";
+      bottomRow.style.flexDirection = "column";
+      bottomRow.insertBefore(
+        vertical === "top" ? buttonWrapper : greetingBubble,
+        vertical === "top" ? greetingBubble : buttonWrapper,
+      );
+    } else {
+      buttonContainer.style.right = offset;
+      bottomRow.style.flexDirection = "row";
+      bottomRow.insertBefore(greetingBubble, buttonWrapper);
+    }
+
+    setGreetingTail(vertical, horizontal);
+  }
+
+  updateLauncherSizes();
+  applyButtonPosition();
+
+  // Create iframe (initially hidden)
+  var iframe = document.createElement("iframe");
+  iframe.id = "minniyo-chatbot-iframe";
+  iframe.allow =
+    "autoplay; sync-xhr; encrypted-media; clipboard-read; clipboard-write";
+  iframe.src = "https://app.minniyo.com/chat/iframe?token=eyJjaXBoZXJUZXh0IjoiTmlHXC8zdjBcL1VlSDZFc3B1VW5aa3UyXC9aZWhYcWY0dWVVMzVrS01PaUlFMUJxRDYxK0pMYkVtM0FReWFOaERrUlYzZ1hjSWcrMkxidE1cLzdCWE9NWldmVDJIVEhKOHg1NWRQakNITEJkOFZ0THN4eHl2UENydiszQ2d1azlZSThEOWVINlhwb1JBaU9GYzBIdUMzR3pOdU9aZjUrd3d6S1hyOE5cL2JYVXNQMk16RWdOQk9VbkhVRnp4dXdSUlNGXC9kVm5HVFprVlBrYzFpMzVjZXRDYndyYUNzaFZnSEdwN0hDVzBsdlpkYzZyQVkwRlZcL1JuOUJNMnAzZXE2dUpjZGUiLCJpdiI6InJmNE5JN2JHKzJYZjNJaGtYMDM5WGc9PSIsImhtYWMiOiJ6RndYVTVNZTZwXC9tRE9yQTdaUjFjaTFTRGUzMHdsMElWemJCQVdYeldNaz0ifQ%3D%3D&color=%23f1d51f";
+  iframe.className =
+    "minniyo-chatbot-iframe minniyo-chatbot-iframe--" +
+    widgetPosition.split("-")[0];
+  iframe.style.cssText = [
+    "position: fixed",
+    "border: none",
+    "border-radius: 12px",
+    "box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+    "z-index: 999998",
+    "background: white",
+    "display: none",
+  ].join(";");
+
+  // Function to hide greeting bubble
+  function hideGreeting() {
+    if (greetingVisible) {
+      greetingVisible = false;
+      greetingBubble.classList.add("slide-out");
+      setTimeout(function () {
+        greetingBubble.style.display = "none";
+        // Show external button after greeting is hidden
+        if (!externalButtonVisible) {
+          externalButtonVisible = true;
+          externalButton.style.display = "flex";
+        }
+      }, 300);
+    }
+  }
+
+  // Function to set iframe dimensions based on device
+  function setIframeDimensions() {
+    iframe.style.top = "auto";
+    iframe.style.bottom = "auto";
+    iframe.style.left = "auto";
+    iframe.style.right = "auto";
+    iframe.style.transform = "none";
+    iframe.style.setProperty("--minniyo-iframe-x", "0px");
+
+    if (isMobile) {
+      iframe.style.width = "90vw";
+      iframe.style.height = "90vh";
+      iframe.style.top = "5vh";
+      iframe.style.left = "5vw";
+    } else {
+      var parts = widgetPosition.split("-");
+      var vertical = parts[0];
+      var horizontal = parts[1];
+
+      iframe.style.width = "336px";
+      iframe.style.height = "576px";
+      iframe.style[vertical] = "30px";
+
+      if (horizontal === "left") {
+        iframe.style.left = "25px";
+      } else if (horizontal === "center") {
+        iframe.style.left = "50%";
+        iframe.style.transform = "translateX(-50%)";
+        iframe.style.setProperty("--minniyo-iframe-x", "-50%");
+      } else {
+        iframe.style.right = "25px";
+      }
+    }
+  }
+
+  // Function to show the chatbot
+  function showChatbot() {
+    if (!isOpen) {
+      isOpen = true;
+      hideGreeting();
+      setIframeDimensions();
+      iframe.style.animation = "none";
+      iframe.style.display = "block";
+      void iframe.offsetWidth;
+      iframe.style.animation = "";
+      buttonContainer.style.display = "none";
+
+      // Send message to iframe that it's opened
+      setTimeout(function () {
+        iframe.contentWindow.postMessage({ action: "open" }, "*");
+      }, 100);
+    }
+  }
+
+  // Function to hide the chatbot
+  function hideChatbot() {
+    if (isOpen) {
+      isOpen = false;
+      iframe.style.display = "none";
+      buttonContainer.style.display = "flex";
+
+      // Send message to iframe that it's closed
+      iframe.contentWindow.postMessage({ action: "close" }, "*");
+    }
+  }
+
+  // Handle button click
+  button.addEventListener("click", showChatbot);
+
+  function handleGreetingClick(e) {
+    // Don't trigger if clicking on external link or close button
+    if (
+      e.target === externalIcon ||
+      e.target.closest("a") ||
+      e.target === closeButton
+    ) {
+      return;
+    }
+    showChatbot();
+  }
+
+  function handleGreetingClose(e) {
+    e.stopPropagation();
+    hideGreeting();
+  }
+
+  // Handle greeting bubble and close button clicks
+  greetingBubble.addEventListener("click", handleGreetingClick);
+  closeButton.addEventListener("click", handleGreetingClose);
+
+  // Auto-hide greeting after 8 seconds
+  var greetingTimeout = setTimeout(function () {
+    hideGreeting();
+  }, 8000);
+
+  function messageHandler(event) {
+    if (event.data && event.data.action === "close") {
+      hideChatbot();
+    }
+  }
+
+  // Listen for close messages from iframe
+  window.addEventListener("message", messageHandler);
+
+  // expose the hideChatbot and showChatbot function to global scope
+  window.hideMinniyoChat = hideChatbot;
+  window.showMinniyoChat = showChatbot;
+  window.showMinniyoButton = () => (buttonContainer.style.display = "flex");
+  window.hideMinniyoButton = () => (buttonContainer.style.display = "none");
+
+  function resizeHandler() {
+    var wasMobile = isMobile;
+    isMobile = window.innerWidth <= 768;
+
+    if (wasMobile !== isMobile) {
+      updateLauncherSizes();
+      applyButtonPosition();
+
+      // Update iframe if open
+      if (isOpen) {
+        setIframeDimensions();
+      }
+    }
+  }
+
+  // Handle window resize
+  window.addEventListener("resize", resizeHandler);
+
+  function keydownHandler(e) {
+    if (e.key === "Escape" && isOpen) {
+      hideChatbot();
+    }
+  }
+
+  // Add ESC key listener to close chatbot
+  document.addEventListener("keydown", keydownHandler);
+
+  // Wait for DOM to be ready before appending
+  function initialize() {
+    document.body.appendChild(buttonContainer);
+    document.body.appendChild(iframe);
+  }
+
+  function cleanup() {
+    // Remove event listeners
+    button.removeEventListener("click", showChatbot);
+    greetingBubble.removeEventListener("click", handleGreetingClick);
+    closeButton.removeEventListener("click", handleGreetingClose);
+    window.removeEventListener("message", messageHandler);
+    window.removeEventListener("resize", resizeHandler);
+    document.removeEventListener("keydown", keydownHandler);
+    document.removeEventListener("DOMContentLoaded", initialize);
+    clearTimeout(greetingTimeout);
+
+    // Remove elements
+    if (buttonContainer.parentNode) {
+      buttonContainer.parentNode.removeChild(buttonContainer);
+    }
+    if (iframe.parentNode) {
+      iframe.parentNode.removeChild(iframe);
+    }
+    if (style.parentNode) {
+      style.parentNode.removeChild(style);
+    }
+
+    // Clear global functions
+    delete window.showMinniyoChat;
+    delete window.hideMinniyoChat;
+    delete window.showMinniyoButton;
+    delete window.hideMinniyoButton;
+    delete window.cleanupMinniyo;
+  }
+
+  // expose the cleanup function to global scope
+  window.cleanupMinniyo = cleanup;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialize);
+  } else {
+    initialize();
+  }
+})();
