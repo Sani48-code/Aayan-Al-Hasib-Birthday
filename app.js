@@ -514,17 +514,25 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     }, 700);
   });
 
-  cheerClose.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    cheerPopup.style.display = 'none';
-    setTimeout(() => {
-      const founderSection = document.getElementById('founderMessage');
-      if (founderSection) {
-        founderSection.scrollIntoView({ behavior: 'smooth' });
+  if (cheerClose) {
+    cheerClose.onclick = function(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
       }
-    }, 100);
-  });
+      cheerPopup.classList.remove('show');
+      cheerPopup.style.display = 'none';
+      cheerPopup.style.visibility = 'hidden';
+      cheerPopup.style.pointerEvents = 'none';
+      setTimeout(() => {
+        const founderSection = document.getElementById('founderMessage');
+        if (founderSection) {
+          founderSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 200);
+      return false;
+    };
+  }
 })();
 
 /* =========================================================================

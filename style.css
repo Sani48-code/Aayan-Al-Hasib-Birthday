@@ -124,8 +124,16 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 .btn-gold{
   background:linear-gradient(135deg,var(--amber-2),var(--amber));
   color:#141414;
+  pointer-events:auto !important;
+  position:relative;
+  z-index:1000;
 }
 .btn-gold:hover:not(:disabled){ box-shadow:0 6px 30px rgba(245,158,11,0.5); }
+#cheerClose{
+  pointer-events:auto !important;
+  z-index:1000 !important;
+  cursor:pointer !important;
+}
 
 /* ============ HERO ============ */
 .hero{
@@ -363,14 +371,16 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 
 .cheer-popup{
   position:fixed; inset:0;
-  z-index:80;
-  display:none;
+  z-index:999;
+  display:none !important;
   align-items:center; justify-content:center;
-  background:rgba(11,13,19,0.75);
+  background:rgba(11,13,19,0.85);
   backdrop-filter:blur(6px);
   padding:20px;
+  pointer-events:auto;
+  overflow:auto;
 }
-.cheer-popup.show{ display:flex !important; }
+.cheer-popup.show{ display:flex !important; pointer-events:auto !important; }
 .cheer-card{
   background:linear-gradient(135deg, rgba(245,158,11,0.1), rgba(251,191,36,0.05));
   border:2px solid var(--amber);
