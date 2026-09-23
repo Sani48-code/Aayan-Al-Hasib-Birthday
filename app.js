@@ -418,15 +418,31 @@ const AudioEngine = (() => {
 })();
 
 /* Music toggle - auto start music on page load */
+let musicStarted = false;
+
+function startMusicAutomatically() {
+  if (!musicStarted) {
+    musicStarted = true;
+    AudioEngine.toggleMusic();
+    document.removeEventListener('click', startMusicAutomatically);
+    document.removeEventListener('touchstart', startMusicAutomatically);
+  }
+}
+
 window.addEventListener('load', () => {
   const musicToggle = document.getElementById('musicToggle');
   if (musicToggle) {
     musicToggle.style.display = 'none';
   }
-  // Auto-play music
+
+  // Try to play on first user interaction
+  document.addEventListener('click', startMusicAutomatically, { once: true });
+  document.addEventListener('touchstart', startMusicAutomatically, { once: true });
+
+  // Also try to play after a delay for browsers that allow it
   setTimeout(() => {
-    AudioEngine.toggleMusic();
-  }, 500);
+    startMusicAutomatically();
+  }, 1000);
 });
 
 const musicToggle = document.getElementById('musicToggle');
@@ -519,20 +535,17 @@ if (musicToggle) {
   });
 
   if (cheerClose && cheerPopup) {
-    cheerClose.onclick = function() {
-      cheerPopup.style.display = 'none';
-      cheerPopup.style.visibility = 'hidden';
-      cheerPopup.style.opacity = '0';
-      cheerPopup.style.pointerEvents = 'none';
-      cheerPopup.style.zIndex = '-1';
-
+    cheerClose.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      cheerPopup.classList.remove('show');
       setTimeout(() => {
         const founderSection = document.getElementById('founderMessage');
         if (founderSection) {
           founderSection.scrollIntoView({ behavior: 'smooth' });
         }
       }, 300);
-    };
+    }, true);
   }
 })();
 
