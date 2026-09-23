@@ -516,7 +516,7 @@ document.getElementById('musicToggle').addEventListener('click', function () {
 
   cheerClose.addEventListener('click', () => {
     cheerPopup.classList.remove('show');
-    document.getElementById('gifts').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('founderMessage').scrollIntoView({ behavior: 'smooth' });
   });
 })();
 
@@ -813,11 +813,16 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     if (!isSpotlight) {
       const messageEl = card.querySelector('.team-message');
       const seeMoreBtn = card.querySelector('.team-see-more');
+      const promote = () => {
+        const idx = TEAM_MESSAGES.indexOf(member);
+        if (idx === -1 || idx === spotlightIndex) return;
+        spotlightIndex = idx;
+        render();
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
       seeMoreBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const expanded = messageEl.classList.toggle('expanded');
-        messageEl.classList.toggle('clamped', !expanded);
-        seeMoreBtn.textContent = expanded ? 'See Less' : 'See More';
+        promote();
       });
       requestAnimationFrame(() => {
         if (messageEl.scrollHeight > messageEl.clientHeight + 2) {
