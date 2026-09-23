@@ -85,18 +85,18 @@ const TEAM_MESSAGES = [
     name: 'Naimur Sayem',
     role: 'Team Leader',
     photo: './Team Member/Naimur Sayem.png',
-    lang: 'bn',
-    message: `আমাদের প্রথম মিটিংয়ের কথা আজও আমার স্পষ্ট মনে পড়ে। আমি অকপটে বলেছিলাম আমার কোনো প্র্যাকটিক্যাল অভিজ্ঞতা নেই, শুধু বেসিক নলেজটুকু আছে। আপনি একদম শান্তভাবে আশ্বস্ত করে বলেছিলেন এতে কোনো সমস্যা হবে না। আপনি কথা দিয়েছিলেন, আমি যদি শিখতে আগ্রহী হই তবে আপনি পাশে থাকবেন, আর প্রতিটি পদক্ষেপে আপনি সেই কথা রেখেছেন।
+    lang: 'en',
+    message: `I still remember our first meeting. I admitted I had no hands-on experience, only basic knowledge. You calmly assured me it wouldn't be an issue. You promised to help me if I was willing to learn and you have kept that promise every step of the way.
 
-প্রথম দিন থেকেই আপনি একজন অসাধারণ লিডার এবং মেন্টর। সত্যিকারের নেতৃত্ব কাকে বলে তা আপনার কাছ থেকেই শেখা। কাজের বাইরেও ম্যানেজমেন্ট, গভীরভাবে চিন্তা করা এবং সুন্দরভাবে কমিউনিকেট করার মতো বহু কিছু আপনি শিখিয়েছেন। ভাষায় সবকিছু প্রকাশ করা অসম্ভব, তবে আপনার কাছ থেকে আমার শেখা আজও প্রতিদিন চলছে।
+From day one, you have been an amazing leader and mentor. I’ve learned true leadership from you. You've taught me so much beyond just work: how to manage, think critically, and communicate effectively. Words can't capture everything, but I continue to learn from you every day.
 
-এই কোম্পানিতে আমার পাওয়া সেরা দুটি বিষয় হলো, আপনি ও জয় ভাই মিলে যে দারুণ পরিবেশ গড়ে তুলেছেন সেটা, আর আপনার কাছ থেকে পাওয়া ব্যক্তিগত গাইডেন্স। আপনি আমার কাছে শুধু একজন মেন্টরই নন, একজন বড় ভাই।
+The two best things about my time at this company are the incredible environment you and Joy Bhai have built, and the personal guidance I receive from you. You are a mentor and a brother to me.
 
-আপনি আমার ভেতরের সম্ভাবনাকে দেখেছিলেন এবং বড় বড় দায়িত্ব দিয়ে ভরসা করেছিলেন। আমি কথা দিচ্ছি, আমি সবসময় আমার সেরাটা দেব। আপনার বিশ্বাসের মর্যাদা রাখব এবং আমাদের ভবিষ্যৎ অগ্রযাত্রায় নিজের সবটুকু ঢেলে দেব।
+You saw potential in me and trusted me with real responsibilities. I promise I will always deliver my best. I won't let you down, and I will give my all to our future growth together.
 
-আল্লাহ আপনাকে অনেক নিয়ামত দান করেছেন, আলহামদুলিল্লাহ। সবসময় নিজের এই সত্তাটা ধরে রাখবেন। নতুন নতুন উদ্যোগ গড়ে তুলুন, এগিয়ে যান এবং যেভাবে আমাদের নেতৃত্ব দিয়ে আসছেন সেভাবেই এগিয়ে নিয়ে যান। যা-ই ঘটুক না কেন, এই পথচলার প্রতিটি পদক্ষেপে আমি আপনাদের সাথে আছি।
+Allah has blessed you with so much, Alhamdulillah. Always stay true to yourself. Keep building, growing, and doing what you do best. Keep leading us. Whatever happens, I am with you guys for every step of this journey.
 
-বলার তো আরও অনেক কিছুই ছিল, কিন্তু সানি আমাকে আর বেশি সময় দিতে দিচ্ছে না! আপনাকে জন্মদিনের অনেক অনেক শুভকামনা, আপনার জীবন আনন্দে ভরে উঠুক এবং একটি বরকতময় ভবিষ্যৎ কামনা করি। আমার ওপর বিশ্বাস রাখার জন্য এবং এই সুন্দর যাত্রায় আমাকে সাথে রাখার জন্য অনেক ধন্যবাদ।`,
+I have so much more to say, but Sani won't let me take up any more time! Wishing you a very happy birthday, a joyful life, and a blessed future. Thank you for believing in me and bringing me along on this journey.`,
   },
   {
     name: 'Shahed',
@@ -120,7 +120,7 @@ const TEAM_MESSAGES = [
     lang: 'bn',
     message: `জন্মদিনের অনেক অনেক শুভেচ্ছা, আয়ান ভাই! 🎂🎉
 
-আপনার সাথে Grow Minion এ কাজ করতে এসে একটা জিনিস বুঝলাম — সত্যিকারের leader কাকে বলে। আপনি কখনো panic করেন না, যত বড় সমস্যাই আসুক শান্ত মাথায় solution বের করেন। এই জিনিসটা অনেকের মধ্যে দেখা যায় না।
+আপনার সাথে Grow Minion এ কাজ করতে এসে একটা জিনিস বুঝলাম সত্যিকারের leader কাকে বলে। আপনি কখনো panic করেন না, যত বড় সমস্যাই আসুক শান্ত মাথায় solution বের করেন। এই জিনিসটা অনেকের মধ্যে দেখা যায় না।
 
 আপনার share করা insight গুলো শুধু কাজের না, genuinely চিন্তা করার মতো। প্রতিটা কথায় experience আর depth বোঝা যায়। আপনার কাছ থেকে শেখার সুযোগ পাওয়াটাকে আমি সত্যিকার অর্থেই lucky মনে করি।
 
@@ -128,10 +128,24 @@ Grow Minion যেদিন থেকে শুরু হয়েছে, আপ
 
 জন্মদিনটা অনেক আনন্দে কাটুক, ভালো থাকুন সবসময়। আপনার জন্য অনেক দোয়া রইলো! 🙏❤️`,
   },
+
+  {
+    name: 'Mahmud Hasan Mobin' ,
+    role: 'Project Manager',
+    photo: './Team Member/Mobin.jpeg',
+    lang: 'bn',
+    message: `শুভ জন্মদিন, আয়ান ভাই! 🎂🎉
+
+আপনার জন্মদিনে আন্তরিক শুভেচ্ছা ও অভিনন্দন। আপনার সুস্বাস্থ্য, দীর্ঘায়ু, সুখ ও সমৃদ্ধি কামনা করছি। আপনার নেতৃত্ব, দিকনির্দেশনা ও অনুপ্রেরণা আমাদের প্রতিনিয়ত আরও ভালোভাবে কাজ করতে উৎসাহিত করে।
+
+আপনার জীবনের প্রতিটি দিন আনন্দ, সাফল্য ও সুন্দর মুহূর্তে ভরে উঠুক। আগামী দিনগুলো আপনার জন্য আরও বেশি সফল ও আনন্দময় হোক।
+
+আপনার জন্য রইল অনেক অনেক শুভকামনা। ❤️🎂 🙏❤️`,
+  },
 ];
 
 const BIRTHDAY_MONTH = 8; // September (0-indexed)
-const BIRTHDAY_DAY = 24;
+const BIRTHDAY_DAY = 25;
 
 /* =========================================================================
    UTILITIES
@@ -174,10 +188,14 @@ function loadImageWithFallback(imgEl, fallbackEl, src) {
 }
 
 /* =========================================================================
-   WEB AUDIO — synth engine (no external audio files)
+   WEB AUDIO — synth engine + mp3 playback
    ========================================================================= */
 const AudioEngine = (() => {
   let ctx = null;
+  const backgroundAudio = new Audio('./Birthday Celebration for Aayan.mp3.mpeg');
+  backgroundAudio.loop = true;
+  backgroundAudio.volume = 0.5;
+
   function getCtx() {
     if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
     if (ctx.state === 'suspended') ctx.resume();
@@ -230,49 +248,22 @@ const AudioEngine = (() => {
     noise.start();
   }
 
-  // "Happy Birthday" melody — simple note sequence (Hz), rough rhythmic delays.
-  const HBD_MELODY = [
-    { n: 261.63, d: 0 }, { n: 261.63, d: 0.35 }, { n: 293.66, d: 0.7 },
-    { n: 261.63, d: 1.05 }, { n: 349.23, d: 1.4 }, { n: 329.63, d: 1.9 },
-    { n: 261.63, d: 2.6 }, { n: 261.63, d: 2.95 }, { n: 293.66, d: 3.3 },
-    { n: 261.63, d: 3.65 }, { n: 392.0, d: 4.0 }, { n: 349.23, d: 4.5 },
-    { n: 261.63, d: 5.2 }, { n: 261.63, d: 5.55 }, { n: 523.25, d: 5.9 },
-    { n: 440.0, d: 6.25 }, { n: 349.23, d: 6.6 }, { n: 329.63, d: 6.95 },
-    { n: 293.66, d: 7.3 }, { n: 466.16, d: 8.0 }, { n: 466.16, d: 8.35 },
-    { n: 440.0, d: 8.7 }, { n: 349.23, d: 9.05 }, { n: 392.0, d: 9.4 },
-    { n: 349.23, d: 9.75 },
-  ];
-
-  let musicPlaying = false;
-  let musicLoopHandle = null;
-  function scheduleMelodyOnce() {
-    const ac = getCtx();
-    HBD_MELODY.forEach(note => {
-      const t = ac.currentTime + note.d;
-      tone(note.n, t, 0.5, { type: 'triangle', vol: 0.16 });
-    });
-  }
   function toggleMusic() {
-    if (musicPlaying) {
-      musicPlaying = false;
-      clearTimeout(musicLoopHandle);
+    if (backgroundAudio.paused) {
+      backgroundAudio.play().catch(() => {});
+      return true;
+    } else {
+      backgroundAudio.pause();
+      backgroundAudio.currentTime = 0;
       return false;
     }
-    musicPlaying = true;
-    const loop = () => {
-      if (!musicPlaying) return;
-      scheduleMelodyOnce();
-      musicLoopHandle = setTimeout(loop, 10500);
-    };
-    loop();
-    return true;
   }
 
   return { chime, eightBit, whoosh, toggleMusic, getCtx };
 })();
 
 /* =========================================================================
-   CANVAS BACKGROUND — floating embers / starlight, mouse reactive
+   CANVAS BACKGROUND — floating embers / starlight, mouse reactive + balloons
    ========================================================================= */
 (function initCanvas() {
   const canvas = document.getElementById('bg-canvas');
@@ -280,6 +271,7 @@ const AudioEngine = (() => {
   let w, h;
   let mouse = { x: -9999, y: -9999 };
   let particles = [];
+  let balloons = [];
 
   function resize() {
     w = canvas.width = window.innerWidth;
@@ -313,8 +305,30 @@ const AudioEngine = (() => {
   }
   for (let i = 0; i < COUNT; i++) particles.push(makeParticle());
 
+  const BALLOON_COLORS = ['#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF', '#FF8C42', '#D946EF'];
+  function makeBalloon() {
+    return {
+      x: Math.random() * w,
+      y: h + 20,
+      r: Math.random() * 8 + 6,
+      vy: Math.random() * 0.5 + 0.5,
+      vx: (Math.random() - 0.5) * 0.3,
+      color: BALLOON_COLORS[Math.floor(Math.random() * BALLOON_COLORS.length)],
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: Math.random() * 0.05 + 0.02,
+    };
+  }
+
+  function spawnBalloon() {
+    if (balloons.length < 15) {
+      balloons.push(makeBalloon());
+    }
+  }
+  setInterval(spawnBalloon, 800);
+
   function tick() {
     ctx.clearRect(0, 0, w, h);
+
     particles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
@@ -342,6 +356,29 @@ const AudioEngine = (() => {
       ctx.shadowColor = p.amber ? 'rgba(245,158,11,0.8)' : 'rgba(255,255,255,0.6)';
       ctx.fill();
     });
+
+    balloons = balloons.filter(b => b.y > -50);
+    balloons.forEach(b => {
+      b.y -= b.vy;
+      b.wobble += b.wobbleSpeed;
+      b.x += Math.sin(b.wobble) * b.wobbleSpeed * 2 + b.vx;
+
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = b.color;
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(b.x, b.y + b.r);
+      ctx.lineTo(b.x, b.y + b.r + 30);
+      ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
     requestAnimationFrame(tick);
   }
   tick();
@@ -384,7 +421,7 @@ const AudioEngine = (() => {
 document.getElementById('musicToggle').addEventListener('click', function () {
   const playing = AudioEngine.toggleMusic();
   this.classList.toggle('playing', playing);
-  this.querySelector('.music-label').textContent = playing ? 'Stop Tune' : 'Play Tune';
+  this.querySelector('.music-label').textContent = playing ? 'Pause Music' : 'Play Music';
 });
 
 /* =========================================================================
