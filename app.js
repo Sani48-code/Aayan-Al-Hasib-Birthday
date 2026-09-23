@@ -79,7 +79,11 @@ const TEAM_MESSAGES = [
     initials: 'AKS',
     lang: 'bn',
     spotlight: true,
-    message: 'ভাই, আমার ক্যারিয়ারে আপনার অবদান অপরিসীম। আমি নিজেই উপলব্ধি করতে পারি আমি অতীতে কী ছিলাম আর আজ কোথায় এসে দাঁড়িয়েছি। আমার আত্মবিশ্বাস বাড়িয়ে দেওয়ার জন্য আপনার প্রতি আমি আজীবন কৃতজ্ঞ থাকব। সবসময় বড় ভাইয়ের মতো পাশে থেকেছেন, যেকোনো বিপদ-আপদে আপনাকে কাছে পেয়েছি। আপনার জন্য মন থেকে অনেক অনেক দোয়া রইল ভাই, আল্লাহ আপনাকে কবুল করুন। ইনশাআল্লাহ, আমাদের এই কোম্পানিকে আমরা একসাথে অনেক বড় করব। সবসময় আপনার সাথে আছি ভাই!',
+    message: `ভাই, আমার ক্যারিয়ারে আপনার অবদান অপরিসীম। আমি নিজেই উপলব্ধি করতে পারি আমি অতীতে কী ছিলাম আর আজ কোথায় এসে দাঁড়িয়েছি। আমার আত্মবিশ্বাস বাড়িয়ে দেওয়ার জন্য আপনার প্রতি আমি আজীবন কৃতজ্ঞ থাকব।
+
+আপনি যখনই আমাকে কোনো কাজ বা দায়িত্ব দিয়েছেন, আমি সবসময় চেষ্টা করেছি সাথে সাথে নিজের সেরাটা দিয়ে তা নামিয়ে দেওয়ার, আর আজও সেই চেষ্টাটাই করে যাচ্ছি। আপনি যেভাবে আমার ওপর ভরসা রেখেছেন, সেই ভরসার জায়গাটা আমি সবসময় ধরে রাখতে চাই। আমি কথা দিচ্ছি ভাই, কোনোদিন আপনাকে হতাশ করব না।
+
+সবসময় বড় ভাইয়ের মতো মাথার ওপর ছায়া হয়ে পাশে থেকেছেন, যেকোনো বিপদ-আপদে আপনাকে সবসময় কাছে পেয়েছি। আপনার জন্য মন থেকে অনেক অনেক দোয়া রইল ভাই, আল্লাহ আপনাকে নেক হায়াত দান করুন ও কবুল করে নিন। ইনশাআল্লাহ, আমাদের এই কোম্পানিকে আমরা একসাথে অনেক বড় করব, অনেক দূর নিয়ে যাব। জীবনের প্রতিটি পদক্ষেপে সবসময় আপনার সাথে আছি ভাই! শুভ জন্মদিন! 🎂🎉`,
   },
  {
     name: 'Naimur Sayem',
@@ -417,33 +421,60 @@ const AudioEngine = (() => {
   setInterval(render, 1000);
 })();
 
-/* Music toggle - auto start music on page load */
-let musicStarted = false;
-
-function startMusicAutomatically() {
-  if (!musicStarted) {
-    musicStarted = true;
-    AudioEngine.toggleMusic();
-    document.removeEventListener('click', startMusicAutomatically);
-    document.removeEventListener('touchstart', startMusicAutomatically);
-  }
-}
-
+/* Music toggle - reliable autoplay with fallback */
 window.addEventListener('load', () => {
   const musicToggle = document.getElementById('musicToggle');
   if (musicToggle) {
     musicToggle.style.display = 'none';
   }
 
-  // Try to play on first user interaction
-  document.addEventListener('click', startMusicAutomatically, { once: true });
-  document.addEventListener('touchstart', startMusicAutomatically, { once: true });
-
-  // Also try to play after a delay for browsers that allow it
+  // Try autoplay immediately with proper timing
   setTimeout(() => {
-    startMusicAutomatically();
-  }, 1000);
+    tryPlayMusic();
+  }, 200);
 });
+
+function tryPlayMusic() {
+  try {
+    const audio = AudioEngine.backgroundAudio;
+    if (audio && audio.paused) {
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Music started successfully
+        }).catch(() => {
+          // Autoplay blocked, setup user interaction listener
+          setupUserInteractionListener();
+        });
+      }
+    }
+  } catch (e) {
+    setupUserInteractionListener();
+  }
+}
+
+function setupUserInteractionListener() {
+  const startMusic = () => {
+    try {
+      const audio = AudioEngine.backgroundAudio;
+      if (audio && audio.paused) {
+        audio.play().catch(() => {});
+      }
+    } catch (e) {}
+
+    // Remove all listeners
+    document.removeEventListener('click', startMusic);
+    document.removeEventListener('touchstart', startMusic);
+    document.removeEventListener('scroll', startMusic);
+    document.removeEventListener('keydown', startMusic);
+  };
+
+  // Add listeners for any user interaction
+  document.addEventListener('click', startMusic, { once: true });
+  document.addEventListener('touchstart', startMusic, { once: true });
+  document.addEventListener('scroll', startMusic, { once: true });
+  document.addEventListener('keydown', startMusic, { once: true });
+}
 
 const musicToggle = document.getElementById('musicToggle');
 if (musicToggle) {
