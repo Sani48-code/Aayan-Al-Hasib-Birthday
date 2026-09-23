@@ -370,17 +370,26 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 .cake-controls{ position:absolute; bottom:-80px; left:50%; transform:translateX(-50%); display:flex; gap:24px; justify-content:center; flex-wrap:wrap; z-index:10; }
 
 .cheer-popup{
-  position:fixed; inset:0;
+  position:fixed;
+  top:0; left:0; right:0; bottom:0;
   z-index:999;
-  display:none !important;
-  align-items:center; justify-content:center;
+  display:none;
+  visibility:hidden;
+  opacity:0;
+  align-items:center;
+  justify-content:center;
   background:rgba(11,13,19,0.85);
   backdrop-filter:blur(6px);
   padding:20px;
-  pointer-events:auto;
-  overflow:auto;
+  pointer-events:none;
+  transition:opacity 0.3s ease;
 }
-.cheer-popup.show{ display:flex !important; pointer-events:auto !important; }
+.cheer-popup.show{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
 .cheer-card{
   background:linear-gradient(135deg, rgba(245,158,11,0.1), rgba(251,191,36,0.05));
   border:2px solid var(--amber);

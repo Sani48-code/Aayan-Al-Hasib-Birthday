@@ -418,21 +418,25 @@ const AudioEngine = (() => {
 })();
 
 /* Music toggle - auto start music on page load */
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const musicToggle = document.getElementById('musicToggle');
-  musicToggle.style.display = 'none';
-  const playing = AudioEngine.toggleMusic();
-  if (playing) {
-    musicToggle.classList.add('playing');
-    musicToggle.querySelector('.music-label').textContent = 'Pause Music';
+  if (musicToggle) {
+    musicToggle.style.display = 'none';
   }
+  // Auto-play music
+  setTimeout(() => {
+    AudioEngine.toggleMusic();
+  }, 500);
 });
 
-document.getElementById('musicToggle').addEventListener('click', function () {
-  const playing = AudioEngine.toggleMusic();
-  this.classList.toggle('playing', playing);
-  this.querySelector('.music-label').textContent = playing ? 'Pause Music' : 'Play Music';
-});
+const musicToggle = document.getElementById('musicToggle');
+if (musicToggle) {
+  musicToggle.addEventListener('click', function () {
+    const playing = AudioEngine.toggleMusic();
+    this.classList.toggle('playing', playing);
+    this.querySelector('.music-label').textContent = playing ? 'Pause Music' : 'Play Music';
+  });
+}
 
 /* =========================================================================
    CAKE & CANDLES
@@ -514,23 +518,20 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     }, 700);
   });
 
-  if (cheerClose) {
-    cheerClose.onclick = function(e) {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      cheerPopup.classList.remove('show');
+  if (cheerClose && cheerPopup) {
+    cheerClose.onclick = function() {
       cheerPopup.style.display = 'none';
       cheerPopup.style.visibility = 'hidden';
+      cheerPopup.style.opacity = '0';
       cheerPopup.style.pointerEvents = 'none';
+      cheerPopup.style.zIndex = '-1';
+
       setTimeout(() => {
         const founderSection = document.getElementById('founderMessage');
         if (founderSection) {
           founderSection.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 200);
-      return false;
+      }, 300);
     };
   }
 })();
