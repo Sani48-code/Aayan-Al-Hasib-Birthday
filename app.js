@@ -514,9 +514,12 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     }, 700);
   });
 
-  cheerClose.addEventListener('click', () => {
+  cheerClose.addEventListener('click', (e) => {
+    e.preventDefault();
     cheerPopup.classList.remove('show');
-    document.getElementById('founderMessage').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      document.getElementById('founderMessage').scrollIntoView({ behavior: 'smooth' });
+    }, 300);
   });
 })();
 
