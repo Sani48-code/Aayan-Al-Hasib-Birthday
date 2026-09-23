@@ -417,7 +417,17 @@ const AudioEngine = (() => {
   setInterval(render, 1000);
 })();
 
-/* Music toggle */
+/* Music toggle - auto start music on page load */
+document.addEventListener('DOMContentLoaded', () => {
+  const musicToggle = document.getElementById('musicToggle');
+  musicToggle.style.display = 'none';
+  const playing = AudioEngine.toggleMusic();
+  if (playing) {
+    musicToggle.classList.add('playing');
+    musicToggle.querySelector('.music-label').textContent = 'Pause Music';
+  }
+});
+
 document.getElementById('musicToggle').addEventListener('click', function () {
   const playing = AudioEngine.toggleMusic();
   this.classList.toggle('playing', playing);

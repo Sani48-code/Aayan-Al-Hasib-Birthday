@@ -106,9 +106,9 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 .btn{
   border:none;
   border-radius:999px;
-  padding:14px 30px;
+  padding:16px 36px;
   font-weight:700;
-  font-size:0.95rem;
+  font-size:1.05rem;
   cursor:pointer;
   transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
   font-family:'Manrope',sans-serif;
@@ -357,7 +357,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   100%{ opacity:0; transform:translate(var(--dx,10px),-90px) scale(2.4); }
 }
 
-.cake-controls{ position:absolute; bottom:100px; left:50%; transform:translateX(-50%); display:flex; gap:16px; justify-content:center; flex-wrap:wrap; z-index:10; }
+.cake-controls{ position:absolute; bottom:70px; left:50%; transform:translateX(-50%); display:flex; gap:24px; justify-content:center; flex-wrap:wrap; z-index:10; }
 
 .cheer-popup{
   position:fixed; inset:0;
