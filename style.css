@@ -254,17 +254,19 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 }
 .hero-video-caption{
   margin-top:18px;
-  color:var(--text-dim);
-  font-size:0.9rem;
+  color:var(--text);
+  font-size:1.05rem;
+  font-weight:700;
 }
 
 .scroll-cue{
   display:inline-block;
-  color:var(--text-dim);
+  color:var(--amber-2);
   text-decoration:none;
-  font-size:0.85rem;
+  font-size:1.1rem;
   letter-spacing:0.05em;
   animation:bounce 2s infinite;
+  font-weight:700;
 }
 @keyframes bounce{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(8px); } }
 
@@ -366,8 +368,9 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   align-items:center; justify-content:center;
   background:rgba(11,13,19,0.75);
   backdrop-filter:blur(6px);
+  padding:20px;
 }
-.cheer-popup.show{ display:flex; }
+.cheer-popup.show{ display:flex !important; }
 .cheer-card{
   background:linear-gradient(135deg, rgba(245,158,11,0.1), rgba(251,191,36,0.05));
   border:2px solid var(--amber);
@@ -380,6 +383,8 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   animation:popIn .4s ease both;
   overflow:hidden;
   box-shadow:0 25px 70px rgba(245,158,11,0.25);
+  position:relative;
+  z-index:81;
 }
 .cheer-card-image{
   width:100%;

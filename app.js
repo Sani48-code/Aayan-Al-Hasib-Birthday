@@ -514,12 +514,16 @@ document.getElementById('musicToggle').addEventListener('click', function () {
     }, 700);
   });
 
-  cheerClose.addEventListener('click', (e) => {
+  cheerClose.addEventListener('click', function(e) {
     e.preventDefault();
-    cheerPopup.classList.remove('show');
+    e.stopPropagation();
+    cheerPopup.style.display = 'none';
     setTimeout(() => {
-      document.getElementById('founderMessage').scrollIntoView({ behavior: 'smooth' });
-    }, 300);
+      const founderSection = document.getElementById('founderMessage');
+      if (founderSection) {
+        founderSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   });
 })();
 
