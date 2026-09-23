@@ -269,7 +269,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
 @keyframes bounce{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(8px); } }
 
 /* ============ CAKE ============ */
-.cake-stage{ display:flex; justify-content:center; margin-bottom:44px; position:relative; }
+.cake-stage{ display:flex; justify-content:center; margin-bottom:140px; position:relative; padding-bottom:40px; }
 .cake-plate{
   position:relative;
   width:min(340px,80vw);
@@ -357,7 +357,7 @@ h1,h2,h3{font-family:'Playfair Display',serif; margin:0;}
   100%{ opacity:0; transform:translate(var(--dx,10px),-90px) scale(2.4); }
 }
 
-.cake-controls{ position:absolute; bottom:70px; left:50%; transform:translateX(-50%); display:flex; gap:24px; justify-content:center; flex-wrap:wrap; z-index:10; }
+.cake-controls{ position:absolute; bottom:-80px; left:50%; transform:translateX(-50%); display:flex; gap:24px; justify-content:center; flex-wrap:wrap; z-index:10; }
 
 .cheer-popup{
   position:fixed; inset:0;
