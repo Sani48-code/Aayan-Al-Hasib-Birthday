@@ -1149,6 +1149,13 @@ if (musicToggle) {
     return div.innerHTML;
   }
 
+  // Prevent any accidental deletion - comments are permanent
+  window.addEventListener('beforeunload', () => {
+    // Ensure wishes are saved before leaving
+    const wishes = loadWishes();
+    if (wishes.length > 0) saveWishes(wishes);
+  });
+
   function renderAll() {
     board.innerHTML = '';
     // Clear all wishes on fresh load - start with clean slate
