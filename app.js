@@ -1102,7 +1102,7 @@ if (musicToggle) {
 /* =========================================================================
    WISH WALL — localStorage persisted
    ========================================================================= */
-(function initWishWall() {
+window.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'ayan_birthday_wishwall';
   const form = document.getElementById('wishForm');
   const nameInput = document.getElementById('wishName');
@@ -1177,7 +1177,7 @@ if (musicToggle) {
     AudioEngine.chime(659.25, 0, 0.25, 0.18);
     confetti({ particleCount: 24, spread: 50, origin: { y: 0.8 }, colors: ['#F59E0B', '#FBBF24'] });
   });
-})();
+});
 
 /* =========================================================================
    CAREER TIMELINE — scroll-triggered reveal for each milestone
