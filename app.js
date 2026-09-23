@@ -1151,6 +1151,8 @@ if (musicToggle) {
 
   function renderAll() {
     board.innerHTML = '';
+    // Clear all wishes on fresh load - start with clean slate
+    localStorage.removeItem(STORAGE_KEY);
     loadWishes().forEach(renderNote);
   }
   renderAll();
