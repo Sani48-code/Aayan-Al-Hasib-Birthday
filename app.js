@@ -149,7 +149,7 @@ Grow Minion যেদিন থেকে শুরু হয়েছে, আপ
 ];
 
 const BIRTHDAY_MONTH = 8; // September (0-indexed)
-const BIRTHDAY_DAY = 25;
+const BIRTHDAY_DAY = 24;
 
 /* =========================================================================
    UTILITIES
