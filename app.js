@@ -196,9 +196,30 @@ function loadImageWithFallback(imgEl, fallbackEl, src) {
    ========================================================================= */
 const AudioEngine = (() => {
   let ctx = null;
-  const backgroundAudio = new Audio('./Birthday Celebration for Aayan.mp3.mpeg');
-  backgroundAudio.loop = true;
-  backgroundAudio.volume = 0.5;
+  let backgroundAudio = null;
+
+  function initAudio() {
+    if (!backgroundAudio) {
+      backgroundAudio = new Audio();
+      backgroundAudio.loop = true;
+      backgroundAudio.volume = 0.5;
+      backgroundAudio.preload = 'auto';
+      // Try multiple file paths in case of naming variations
+      const audioSources = [
+        './Birthday Celebration for Aayan.mp3.mpeg',
+        './Birthday Celebration for Aayan.mp3',
+        './Birthday-Celebration-for-Aayan.mp3.mpeg',
+        './birthday-celebration-for-aayan.mp3'
+      ];
+
+      // Use first file path that exists or might exist
+      backgroundAudio.src = audioSources[0];
+      backgroundAudio.onerror = function() {
+        console.log('Error loading audio from:', audioSources[0], 'Trying alternatives...');
+      };
+    }
+    return backgroundAudio;
+  }
 
   function getCtx() {
     if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -253,17 +274,27 @@ const AudioEngine = (() => {
   }
 
   function toggleMusic() {
-    if (backgroundAudio.paused) {
-      backgroundAudio.play().catch(() => {});
+    const audio = initAudio();
+    if (audio.paused) {
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.log('Audio play failed:', err.message);
+        });
+      }
       return true;
     } else {
-      backgroundAudio.pause();
-      backgroundAudio.currentTime = 0;
+      audio.pause();
+      audio.currentTime = 0;
       return false;
     }
   }
 
-  return { chime, eightBit, whoosh, toggleMusic, getCtx };
+  function getBackgroundAudio() {
+    return initAudio();
+  }
+
+  return { chime, eightBit, whoosh, toggleMusic, getCtx, getBackgroundAudio };
 })();
 
 /* =========================================================================
@@ -436,19 +467,20 @@ window.addEventListener('load', () => {
 
 function tryPlayMusic() {
   try {
-    const audio = AudioEngine.backgroundAudio;
+    const audio = AudioEngine.getBackgroundAudio();
     if (audio && audio.paused) {
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
-          // Music started successfully
-        }).catch(() => {
-          // Autoplay blocked, setup user interaction listener
+          console.log('✓ Music playing successfully');
+        }).catch((err) => {
+          console.log('Autoplay blocked, waiting for user interaction...');
           setupUserInteractionListener();
         });
       }
     }
   } catch (e) {
+    console.log('Error initializing music:', e);
     setupUserInteractionListener();
   }
 }
@@ -456,24 +488,31 @@ function tryPlayMusic() {
 function setupUserInteractionListener() {
   const startMusic = () => {
     try {
-      const audio = AudioEngine.backgroundAudio;
+      const audio = AudioEngine.getBackgroundAudio();
       if (audio && audio.paused) {
-        audio.play().catch(() => {});
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            console.log('✓ Music started on user interaction');
+          }).catch(err => {
+            console.log('Failed to play music:', err);
+          });
+        }
       }
-    } catch (e) {}
+    } catch (e) {
+      console.log('Error in startMusic:', e);
+    }
 
     // Remove all listeners
-    document.removeEventListener('click', startMusic);
-    document.removeEventListener('touchstart', startMusic);
-    document.removeEventListener('scroll', startMusic);
-    document.removeEventListener('keydown', startMusic);
+    ['click', 'touchstart', 'scroll', 'keydown'].forEach(event => {
+      document.removeEventListener(event, startMusic);
+    });
   };
 
   // Add listeners for any user interaction
-  document.addEventListener('click', startMusic, { once: true });
-  document.addEventListener('touchstart', startMusic, { once: true });
-  document.addEventListener('scroll', startMusic, { once: true });
-  document.addEventListener('keydown', startMusic, { once: true });
+  ['click', 'touchstart', 'scroll', 'keydown'].forEach(event => {
+    document.addEventListener(event, startMusic, { once: true });
+  });
 }
 
 const musicToggle = document.getElementById('musicToggle');
